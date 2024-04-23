@@ -20,9 +20,9 @@ export interface User {
     contactNo: string,
     dateOfBirth: Date,
     role: Role,
+    loggedAt?: Date,
     unitNo?: Number,
     properties?: Types.ObjectId[],
-    loggedAt?: Date
 }
 
 // Mongoose Schema
@@ -38,7 +38,7 @@ export const userSchema: Schema<User> = new Schema({
         contactNo: { type: String, required: true },
         dateOfBirth: { type: Date, required: true },
         role: { type: String, required: true, enum: Object.values(Role), default: Role.TENANT},
-        unitNo: { type: Number },
+        loggedAt: { type: Date },
+        unitNo: { type: Number, default: 0},
         properties: { type: [{ type: Types.ObjectId, ref: 'Property' }], default: []},
-        loggedAt: { type: Date }
 });
