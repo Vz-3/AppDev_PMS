@@ -21,3 +21,17 @@ export async function getUserAccount(email: string): Promise<User> {
 export async function updateUserAccount(oldUser: User, newUser: User): Promise<boolean> {
     return accountModel.updateUser(oldUser, newUser);
 }
+
+export async function validateUserPassword(user: User, password: string): Promise<boolean>{
+    const hashPassword = await generateHash(password);
+    return user.password === hashPassword;
+}
+
+export async function loginUser(user: User, dt: Date): Promise<string> {
+    const authToken = accountModel.generateAuth(user, dt);
+    return authToken;
+}
+
+export async function logoutUser(_id: string): Promise<Date>{
+    return await accountModel.invalidateAuth(_id);
+}
