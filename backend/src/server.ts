@@ -1,8 +1,22 @@
 import express from "express";
+import "dotenv/config";
 
 const app = express();
-const port = 7777; // React uses 3000
+const port = process.env.PORT;
 
 app.get("/", (_ , res) => {
-  res.send("https://www.youtube.com/watch?v=FcxjCPeicvU");
+  res.send("Connected to the server");
+  console.log("% Working %");
+});
+
+/*
+Post - Create
+Put - Update
+Patch - Update
+Delete - Delete
+Get - Read
+*/
+
+app.listen(port, ()=> {
+  console.log(`Server is running on port:${port}`)
 });
