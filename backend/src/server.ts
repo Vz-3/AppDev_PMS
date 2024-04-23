@@ -1,6 +1,9 @@
 import express from "express";
 import "dotenv/config";
-import authRoute from "./routes/authRoute";
+import accountRoute from "./routes/accountRoute";
+import { db } from './models/database/mongodbConfig';
+
+db.initDatabaseConnection();
 
 const app = express();
 const port = process.env.PORT;
@@ -19,7 +22,7 @@ Get - Read
 */
 
 const apiRoutes = {
-  "/account" : authRoute,
+  "/account" : accountRoute,
 };
 
 for (const key of Object.keys(apiRoutes)) {
