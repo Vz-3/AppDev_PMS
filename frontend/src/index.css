@@ -59,7 +59,11 @@ body.login-page {
   background-color: black;
   color: white;
 }
-body.home-page {
-  background-color: black; /* Set the background color for the home page */
-  color: white; /* Set the text color for the home page */
+body {
+  background-color: black !important; /* Add !important to ensure it overrides other styles */
+  color: white; /* Set the desired text color */
+
+}
+.mt-4 {
+  color: white;
 }

@@ -1,25 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../index.css'; // Import your CSS file
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  useEffect(() => {
-    document.body.classList.add('login-page'); // Add the class to body when component mounts
-    return () => {
-      document.body.classList.remove('login-page'); // Remove the class when component unmounts
-    };
-  }, []);
-
   const handleLogin = (event) => {
     event.preventDefault(); // Prevent default form submission behavior
-
+  
+    // Check if username or password is empty
+    if (!username || !password) {
+      alert("Please enter both username and password.");
+      return;
+    }
+  
     // Implement login logic here (e.g., API call, validation)
     console.log("Logging in with:", username, password);
-
+  
     // Assuming successful login:
-    window.location.href = "/home"; // Redirect to home page on success
+    // Redirect to home page
+    window.location.href = "/home";
   };
 
   return (
@@ -51,7 +52,8 @@ function Login() {
         /><br />
         <br />
         <br />
-        <button type="submit" className="submit" onClick={handleLogin}>
+        {/* Disable the submit button if username or password is empty */}
+        <button type="submit" className="submit" onClick={handleLogin} disabled={!username || !password}>
           Submit
         </button>
       </div>
