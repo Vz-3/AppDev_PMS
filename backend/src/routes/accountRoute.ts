@@ -8,6 +8,6 @@ router.post("/register", register);
 router.patch("/update", update);
 router.delete("/delete", deleteAccount);
 router.post("/login", logIn);
-router.post("/logout", logOut);
+router.get("/logout", logOut);
 
 export default router;

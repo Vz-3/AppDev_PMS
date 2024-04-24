@@ -13,6 +13,10 @@ app.get("/", (_ , res) => {
   console.log("% Working %");
 });
 
+app.get("/reset", () => {
+  db.dropDatabase();
+})
+
 /*
 Post - Create
 Put - Update
