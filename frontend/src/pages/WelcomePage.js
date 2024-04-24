@@ -1,9 +1,15 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
-import '../prev.css';
-import Login from './Login';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import '../prev.css'; // Import your CSS file
 
 function WelcomePage() {
+  useEffect(() => {
+    document.body.classList.add('welcome-page'); // Add the class to body when component mounts
+    return () => {
+      document.body.classList.remove('welcome-page'); // Remove the class when component unmounts
+    };
+  }, []);
+
   return (
     <div className="WelcomePage">
       <div className="greetings">
@@ -18,13 +24,12 @@ function WelcomePage() {
         <span>S</span>
       </div>
       <div className="description">
-        <span>Welcome to our apartment management system!</span>
+        <span style={{ color: 'white' }}>Welcome to our apartment management system!</span>
       </div>
       <div className="button">
-      <Link to="/login"><button>
-              Continue 
-            </button>
-            </Link>
+        <Link to="/login">
+          <button>Continue</button>
+        </Link>
       </div>
     </div>
   );
