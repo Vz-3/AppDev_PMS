@@ -1,6 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './pages/Login.js'
+import WelcomePage from './pages/WelcomePage';
+
 
 function App() {
 
@@ -8,11 +12,14 @@ function App() {
     <>
     
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />    
-      </header>
 
-      <h1>Hello, please help </h1>
+      <BrowserRouter>      
+        <Routes>
+          <Route path="/" element={<WelcomePage />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+
     </div>
     </>
   );
