@@ -15,8 +15,14 @@ app.get("/", (_ , res) => {
   console.log("% Working %");
 });
 
-app.get("/reset", () => {
-  db.dropDatabase();
+app.get("/reset", (_, res) => {
+  try {
+    db.dropDatabase();
+    res.status(200).send("Database dropped successfully");
+  } catch (error) {
+    console.log("Error in dropping database: ", error);
+    res.status(500).send("Error in dropping database");
+  }
 })
 
 /*
