@@ -8,6 +8,8 @@ db.initDatabaseConnection();
 const app = express();
 const port = process.env.PORT;
 
+app.use(express.json());
+
 app.get("/", (_ , res) => {
   res.send("Connected to the server");
   console.log("% Working %");
