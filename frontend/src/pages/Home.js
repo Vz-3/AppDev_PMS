@@ -6,7 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Link } from "react-router-dom"; // Import Link component
-import "../styles/global.css";
+import "../styles/home.container.css";
 
 function Home() {
   const [userRole, setUserRole] = useState(null);
@@ -61,7 +61,12 @@ function Home() {
       </Navbar>
 
       {/* Your Home page content here */}
-      <Container className="mt-4">
+      <div>
+        <h2>
+          Dashboard
+        </h2>
+      </div>
+      <Container className="dashboard">
         <h2>Dashboard</h2>
         {/* Dashboard content */}
       </Container>

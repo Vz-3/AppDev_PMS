@@ -1,0 +1,14 @@
+.dashboard{
+    width: 1280px;
+    height: 200px;
+    background-color: aliceblue;    
+    border-radius: 25px;
+    padding-top: 10px;
+}
+
+.dashboard h2{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    background-color: rgb(60, 67, 67);
+    border-radius: 25px;
+}
