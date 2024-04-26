@@ -1,12 +1,12 @@
 // Import necessary components and hooks
-import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import Container from 'react-bootstrap/Container';
-import Dropdown from 'react-bootstrap/Dropdown';
-import { Link } from 'react-router-dom'; // Import Link component
-import '../index.css';
+import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
+import Dropdown from "react-bootstrap/Dropdown";
+import { Link } from "react-router-dom"; // Import Link component
+import "../styles/global.css";
 
 function Home() {
   const [userRole, setUserRole] = useState(null);
@@ -14,7 +14,7 @@ function Home() {
   useEffect(() => {
     // Fetch user role and update state
     // For demonstration, setting a default role
-    setUserRole('Admin');
+    setUserRole("Admin");
   }, []);
 
   // Function to handle logout
@@ -41,12 +41,15 @@ function Home() {
               {/* Display user role dynamically */}
               <Dropdown align="end">
                 <Dropdown.Toggle variant="dark" id="dropdown-basic">
-                  {userRole || 'User'}
+                  {userRole || "User"}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   {/* Use Link component for logout */}
                   <Dropdown.Item onClick={handleLogout}>
-                    <Link to="/Login.js" style={{ color: 'inherit', textDecoration: 'none' }}>
+                    <Link
+                      to="/Login.js"
+                      style={{ color: "inherit", textDecoration: "none" }}
+                    >
                       Log Out
                     </Link>
                   </Dropdown.Item>

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../index.css'; // Import your CSS file
+import React, { useState } from "react";
+
+import "../styles/global.css"; // Import your CSS file
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -8,16 +8,16 @@ function Login() {
 
   const handleLogin = (event) => {
     event.preventDefault(); // Prevent default form submission behavior
-  
+
     // Check if username or password is empty
     if (!username || !password) {
       alert("Please enter both username and password.");
       return;
     }
-  
+
     // Implement login logic here (e.g., API call, validation)
     console.log("Logging in with:", username, password);
-  
+
     // Assuming successful login:
     // Redirect to home page
     window.location.href = "/home";
@@ -26,34 +26,44 @@ function Login() {
   return (
     <div className="card">
       <div className="Login">
-        <label>Login</label><br />
+        <label>Login</label>
+        <br />
       </div>
       <div className="credentials">
         <br />
         <br />
-        <label htmlFor="user_pass">Username</label><br />
+        <label htmlFor="user_pass">Username</label>
+        <br />
         <input
           type="text"
           id="user_pass"
           className="tbox"
-          placeholder=". . ."
+          placeholder="username123"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-        /><br />
+        />
         <br />
-        <label htmlFor="user_pwd">Password</label><br />
+        <br />
+        <label htmlFor="user_pwd">Password</label>
+        <br />
         <input
           type="password"
           id="user_pwd"
           className="tbox"
-          placeholder=". . ."
+          placeholder="passWord123"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        /><br />
+        />
+        <br />
         <br />
         <br />
         {/* Disable the submit button if username or password is empty */}
-        <button type="submit" className="submit" onClick={handleLogin} disabled={!username || !password}>
+        <button
+          type="submit"
+          className="submit"
+          onClick={handleLogin}
+          disabled={!username || !password}
+        >
           Submit
         </button>
       </div>
