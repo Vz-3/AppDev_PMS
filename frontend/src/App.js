@@ -1,5 +1,5 @@
 import React from "react";
-import {Container} from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login.js";
 import WelcomePage from "./pages/WelcomePage";
@@ -8,7 +8,7 @@ import Home from "./pages/Home"; // Import the Home component
 function App() {
   return (
     <>
-      <Container>
+      <div>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<WelcomePage />} />
@@ -17,7 +17,7 @@ function App() {
             {/* Use the imported Home component */}
           </Routes>
         </BrowserRouter>
-      </Container>
+      </div>
     </>
   );
 }

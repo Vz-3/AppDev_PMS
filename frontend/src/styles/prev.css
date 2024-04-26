@@ -28,7 +28,7 @@
         text-shadow: 0 0 12px #39c6d6, 0 0 50px #39c6d6, 0 0 100px #39c6d6;
     }
     10%, 90%{
-        color: #111;
+        color: #242424;
         text-shadow: none;
     }
 }
@@ -72,7 +72,7 @@
 
 .button button {
     padding: 10px 20px;
-    background-color: #39c6d6;
+    background-color: #061665;
     border: none;
     border-radius: 5px;
     color: white;
@@ -82,7 +82,7 @@
 }
 
 .button button:hover {
-    background-color: #2aa9ba;
+    background-color: #05114e;
 }
 
 .button a {
