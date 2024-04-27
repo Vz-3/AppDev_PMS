@@ -1,3 +1,5 @@
+const cors = require("cors");
+
 import express from "express";
 import "dotenv/config";
 import accountRoute from "./routes/accountRoute";
@@ -8,6 +10,7 @@ db.initDatabaseConnection();
 const app = express();
 const port = process.env.PORT;
 
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (_ , res) => {
