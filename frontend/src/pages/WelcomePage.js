@@ -4,14 +4,14 @@ import '../styles/prev.css'; // Import your CSS file
 
 function WelcomePage() {
   useEffect(() => {
-    document.body.classList.add('welcome-page'); // Add the class to body when component mounts
+    document.body.classList.add('WelcomePage'); // Add the class to body when component mounts
     return () => {
-      document.body.classList.remove('welcome-page'); // Remove the class when component unmounts
+      document.body.classList.remove('WelcomePage'); // Remove the class when component unmounts
     };
   }, []);
 
   return (
-    <div className="WelcomePage">
+    <body className="WelcomePage">
       <div className="greetings">
         <span>K</span>
         <span>M</span>
@@ -31,7 +31,7 @@ function WelcomePage() {
           <button>Continue</button>
         </Link>
       </div>
-    </div>
+    </body>
   );
 }
 

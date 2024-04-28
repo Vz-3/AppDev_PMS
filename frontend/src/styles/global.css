@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(16, 16, 32) !important; /* Add !important to ensure it overrides other styles */
+  background-color: rgb(0, 0, 0) !important; /* Add !important to ensure it overrides other styles */
   color: white; /* Set the desired text color */
 }
 
