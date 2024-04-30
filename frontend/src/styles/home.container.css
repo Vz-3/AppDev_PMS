@@ -1,9 +1,10 @@
 .dashboard{
-    width: 1280px;
-    height: 200px;
+    width: 1500px;
+    height: 700px;
     background-color: aliceblue;    
     border-radius: 25px;
-    padding-top: 10px;
+    padding: 10px;
+    position: relative;
 }
 
 .dashboard h2{
@@ -11,4 +12,36 @@
     text-align: center;
     background-color: rgb(60, 67, 67);
     border-radius: 25px;
+}
+
+.overview{
+    border-radius: 10px;
+    background-color: rgb(152, 198, 239); 
+    width: 39.5vw;
+    height: 30vh;
+    float: left;
+}
+
+.maintenance{
+    border-radius: 10px;
+    background-color: rgb(152, 198, 239); 
+    width: 39.5vw;
+    height: 30vh;
+    float: right;
+}
+
+.finance{
+    border-radius: 10px;
+    background-color: rgb(152, 198, 239); 
+    width: 39.5vw;
+    height: 30vh;
+    float: left;
+}
+
+.comms{
+    border-radius: 10px;
+    background-color: rgb(152, 198, 239); 
+    width: 39.5vw;
+    height: 30vh;
+    float: right;
 }

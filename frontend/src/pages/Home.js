@@ -61,14 +61,20 @@ function Home() {
       </Navbar>
 
       {/* Your Home page content here */}
-      <div>
-        <h2>
-          Dashboard
-        </h2>
-      </div>
       <Container className="dashboard">
         <h2>Dashboard</h2>
-        {/* Dashboard content */}
+        <div className="overview">
+          Property Overview
+        </div>
+        <div className="maintenance">
+          Maintenance
+        </div>
+        <div className="finance">
+          Finance
+        </div>
+        <div className="comms">
+          Comms
+        </div>
       </Container>
     </div>
   );
