@@ -1,27 +1,28 @@
-// Import necessary components and hooks
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Dropdown from "react-bootstrap/Dropdown";
-import { Link } from "react-router-dom"; // Import Link component
-import "../styles/home.container.css";
+import { Link } from "react-router-dom"; 
+import { Button } from "react-bootstrap"; 
+import "../styles/tenants.css";
 
-function Home() {
+function Tenants() {
   const [userRole, setUserRole] = useState(null);
+  const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
-    // Fetch user role and update state
-    // For demonstration, setting a default role
     setUserRole("Admin");
   }, []);
 
-  // Function to handle logout
   const handleLogout = () => {
-    // Perform logout actions (e.g., clear session, remove tokens, etc.)
-    // Assuming successful logout, redirect to login page
-    window.location.href = "/login"; // Redirect to login page
+    window.location.href = "/login"; 
+  };
+
+  const handleClick = () => {
+    setIsClicked(true);
+    setTimeout(() => setIsClicked(false), 50);
   };
 
   return (
@@ -38,13 +39,11 @@ function Home() {
               <Nav.Link href="#Users">Users</Nav.Link>
             </Nav>
             <Nav>
-              {/* Display user role dynamically */}
               <Dropdown align="end">
                 <Dropdown.Toggle variant="dark" id="dropdown-basic">
                   {userRole || "User"}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  {/* Use Link component for logout */}
                   <Dropdown.Item onClick={handleLogout}>
                     <Link
                       to="/Login.js"
@@ -60,18 +59,37 @@ function Home() {
         </Container>
       </Navbar>
 
-      {/* Your Home page content here */}
       <div>
-        <h2>
-          Dashboard
-        </h2>
+        <Button className={`addTenantButton ${isClicked ? "clicked" : ""}`} onClick={handleClick}>
+          <text>Add Tenant</text>
+        </Button>
       </div>
-      <Container className="dashboard">
-        <h2>Dashboard</h2>
-        {/* Dashboard content */}
+      <Container className="tenantDashboard">
+        <h2>Tenants</h2>
+        <div className="tenantList">
+          <div className="tenantCell">
+            <div className="imageContainer">
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Arjay Aquino</span><br />
+              <span>Unit Number: 212</span>
+            </div>
+          </div>
+          <div className="tenantCell">
+            <div className="imageContainer">
+              {/* Placeholder image */}
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Lorem Ipsum</span><br />
+              <span>Unit Number: 276</span>
+            </div>
+          </div>
+        </div>
       </Container>
     </div>
   );
 }
 
-export default Home;
+export default Tenants;

@@ -1,0 +1,85 @@
+.tenantDashboard {
+    width: 90%; /* Use a percentage value for responsiveness */
+    max-width: 4280px; /* Set a maximum width */
+    min-width: 1400px;
+    max-height: 800px;
+    min-height: 400px;
+    background-color: aliceblue;
+    border-radius: 25px;
+    padding-top: 10px;
+    margin: 20px auto; /* Center the dashboard horizontally */
+}
+  
+.tenantDashboard h2 {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    background-color: rgb(60, 67, 67);
+    border-radius: 25px;
+    margin-top: 0; /* Remove default margin */
+}
+  
+/* Media query for screens larger than 768px (tablets and desktops) */
+@media (min-width: 768px) {
+    .dashboard {
+        width: 80%; /* Adjust the width as needed for larger screens */
+    }
+}
+
+/* tenants.css */
+.tenantList {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .imageContainer {
+    width: 100px; /* Adjust as needed */
+    margin-right: 10px;
+  }
+
+.tenantImg {
+    height: 100px;
+    width: 100px;
+}
+  
+  .tenantInfo {
+    flex-grow: 1; /* Take remaining space */
+  }
+  
+.tenantCell {
+    color:aliceblue;
+    width: fit-content;
+    height: fit-content;
+    padding: 2vb;
+    background-color: rgb(88, 88, 88);
+    border-radius: 10px;
+    margin: 20px;
+    margin-right: 20px; /* Add horizontal spacing between cells */
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.addTenantButton {
+    --bs-btn-active-bg: none;
+    padding-top: 1vb;
+    font-size: 20px;
+    width: fit-content;
+    height: fit-content;
+    background-color: aliceblue;
+    border-radius: 4px;
+    margin: 10px auto;
+    color: rgb(56, 56, 56);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; /* Added transition for transform */
+}
+
+.addTenantButton:hover {
+    background-color: aliceblue;
+    color: rgb(56, 56, 56);
+}
+
+.addTenantButton.clicked {
+    transform: scale(0.35); /* Scale down when clicked */
+    background-color: rgb(56, 56, 56) !important; /* Keep the original background color */
+    color: aliceblue; /* Keep the original text color */
+}
