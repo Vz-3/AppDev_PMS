@@ -1,10 +1,12 @@
 .dashboard{
-    width: 1500px;
-    height: 700px;
+    max-width: 2000px;
+    width: 2000px;
+    height: 1000px;
     background-color: aliceblue;    
     border-radius: 25px;
     padding: 10px;
-    position: relative;
+    margin-top: 300px;
+    
 }
 
 .dashboard h2{
@@ -14,34 +16,84 @@
     border-radius: 25px;
 }
 
-.overview{
-    border-radius: 10px;
-    background-color: rgb(152, 198, 239); 
-    width: 39.5vw;
-    height: 30vh;
-    float: left;
+.dashboard h4{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    background-color: rgb(60, 67, 67);
+    border-radius: 25px;
 }
 
-.maintenance{
-    border-radius: 10px;
-    background-color: rgb(152, 198, 239); 
-    width: 39.5vw;
-    height: 30vh;
-    float: right;
+.widgets{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
 }
 
-.finance{
-    border-radius: 10px;
-    background-color: rgb(152, 198, 239); 
-    width: 39.5vw;
-    height: 30vh;
-    float: left;
+.widgets h3{
+    text-align: center;
+    margin-top: 5px;
+    
 }
 
-.comms{
+.wtext{
+    margin: 20px;
+}
+
+.total{
     border-radius: 10px;
-    background-color: rgb(152, 198, 239); 
-    width: 39.5vw;
-    height: 30vh;
-    float: right;
+    background-color: rgb(209, 233, 255); 
+    width: 390px;
+    height: 100px;
+    margin: 5px;
+    display: flex;
+
+}
+
+.due{
+    border-radius: 10px;
+    background-color: rgb(209, 233, 255); 
+    width: 390px;
+    height: 100px;
+    margin: 5px;
+    display: flex;
+}
+
+.paid{
+    border-radius: 10px;
+    background-color: rgb(209, 233, 255); 
+    width: 390px;
+    height: 100px;
+    margin: 5px;
+    display: flex;
+}
+
+.request{
+    border-radius: 10px;
+    background-color: rgb(209, 233, 255); 
+    width: 390px;
+    height: 100px;
+    margin: 5px;
+    display: flex;
+}
+
+.icon{
+    height: 50px;
+    width: 50px;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+.dinformation{
+    display: flex;
+    justify-content: center;
+}
+
+.info{
+    width: 490px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color:rgb(209, 233, 255); 
+    padding: 5px;
+    height: 500px;
+    
 }

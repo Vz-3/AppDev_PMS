@@ -7,6 +7,10 @@ import Container from "react-bootstrap/Container";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Link } from "react-router-dom"; // Import Link component
 import "../styles/home.container.css";
+import check from "../dashboard icons/check.png"
+import clock from "../dashboard icons/clock.png"
+import envelope from "../dashboard icons/envelope.png"
+import user from "../dashboard icons/user.png"
 
 function Home() {
   const [userRole, setUserRole] = useState(null);
@@ -63,20 +67,51 @@ function Home() {
       {/* Your Home page content here */}
       <Container className="dashboard">
         <h2>Dashboard</h2>
-        <div className="overview">
-          Property Overview
+        <div className="widgets">
+          <div className="total">
+            <img src={user} alt="user" className="icon" />
+            <div className="wtext">
+              Total Tenants: <br/>
+              #
+            </div>
+          </div>
+          <div className="due">
+            <img src={clock} alt="clock" className="icon" />
+            <div className="wtext">
+              Due Payments <br/>
+              #
+            </div>
+          </div>
+          <div className="paid">
+            <img src={check} alt="check" className="icon" />
+            <div className="wtext">
+              Paid Tenants <br/>
+              #
+            </div>
+          </div>
+          <div className="request">
+            <img src={envelope} alt="envelope" className="icon" />
+            <div className="wtext">
+              Requests: <br/>
+              #
+            </div>
+          </div>
         </div>
-        <div className="maintenance">
-          Maintenance
-        </div>
-        <div className="finance">
-          Finance
-        </div>
-        <div className="comms">
-          Comms
+        <br/>
+        <div className="dinformation">
+          <div className="info">
+            <h4>Tenant Information:</h4>
+          </div>
+          <div className="info">
+           <h4>Due Payments:</h4>
+          </div>
+          <div className="info">
+            <h4>Requests:</h4>
+          </div>
         </div>
       </Container>
     </div>
+    
   );
 }
 
