@@ -182,8 +182,63 @@ export async function viewProfile(req: RequestWithAuth, res: Response) {
         });
         return;
     }
-    
-};
+}
+
+export async function resetPassword(req: RequestWithAuth, res: Response) {
+    try {
+        const { oldPassword, newPassword } = req.body;
+        if (!oldPassword || !newPassword) {
+            res.status(400).send({ 
+                success: false,
+                message: "Please provide all required fields." 
+            });
+            return;
+        }
+
+        const userAccount = await getUserAccount(req.email);
+        const isValidated = await validateUserPassword(userAccount, oldPassword);
+        if (!isValidated) {
+            res.status(400).send({ 
+                success: false,
+                message: "Invalid credentials. Passwords does not match!" 
+            });
+            return;
+        }
+
+        const updatedData: User = {
+            userName: userAccount.userName,
+            password: newPassword,
+            name: userAccount.name,
+            email: userAccount.email,
+            contactNo: userAccount.contactNo,
+            dateOfBirth: userAccount.dateOfBirth,
+            role: userAccount.role,
+        };
+
+        const success = await updateUserAccount(userAccount, updatedData);
+
+        if (!success) {
+            res.status(400).send({
+                success: false,
+                message: "Failed to update password.",
+            });
+            return;
+        }
+
+        res.status(200).send({
+            success: true,
+            message: "Password reset is complete!",
+        });
+
+    } catch (e) {
+        console.log("Reset error: ", e);
+        res.status(400).send({
+            success: false,
+            message: "Reset API error.",
+        });
+        return;
+    }
+}
 
 export async function update(req: RequestWithAuth, res: Response) {
     try {

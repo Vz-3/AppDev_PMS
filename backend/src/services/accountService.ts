@@ -22,6 +22,12 @@ export async function updateUserAccount(oldUser: User, newUser: User): Promise<b
     return accountModel.updateUser(oldUser, newUser);
 }
 
+export async function updateUserPassword(user: User, password: string): Promise<boolean> {
+    const hashPassword = await generateHash(password);
+    user.password = hashPassword;
+    return accountModel.updateUser(user, user);
+}
+
 export async function validateUserPassword(user: User, password: string): Promise<boolean>{
     const hashPassword = await generateHash(password);
     return user.password === hashPassword;
