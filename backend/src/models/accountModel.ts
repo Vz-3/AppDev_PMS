@@ -5,8 +5,8 @@ import jwt from 'jsonwebtoken';
 
 export class AccountModel {
     async createUser(user: User): Promise<boolean> {
-        user.role = user.role || Role.TENANT;
         user.loggedAt = await getLocalDate();
+        user.role = user.role || Role.TENANT;
         const user_data = new db.UserModel(user);
         try {
             console.log("User: ", user, " | Role: ", user.role);
@@ -20,7 +20,16 @@ export class AccountModel {
 
     async deleteUser(email: string): Promise<boolean> {
         try {
-            await db.UserModel.deleteOne({ email: email });
+            const foundAccount = await db.UserModel.findOne({ email: email });
+            if (!foundAccount) {
+                console.log("deleteUser error: User not found");
+                return false;
+            }
+            const accountedDeleted = await db.UserModel.deleteOne({ email: email });
+            if (!accountedDeleted) {
+                console.log("deleteUser error: User not deleted");
+                return false;
+            }
             return true;
         } catch (error) {
             console.log("deleteUser error: ", error);
