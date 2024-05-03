@@ -49,9 +49,16 @@ export async function register(req: Request, res: Response) {
     }
 };
 
-export async function deleteAccount(req: Request, res: Response) {
+export async function deleteAccount(req: RequestWithAuth, res: Response) {
     try {
-        const email = (req as RequestWithAuth).email;
+        const email = req.email;
+        console.log("Email: ", email);
+        if (!email || typeof email !== 'string') 
+        {
+            console.log("Invalid email provided. Throwing exception...");
+            res.status(400).send({message: "Incorrect or missing user email query was found!"});
+            return;
+        }
         const success = await deleteUserAccount(email);
 
         if (!success) {
