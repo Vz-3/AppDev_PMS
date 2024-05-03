@@ -29,7 +29,7 @@ export async function register(req: Request, res: Response) {
         if (!success) {
             res.status(400).send({ 
                 success: false,
-                message: "Failed to create user account. Already exists" 
+                message: "Failed to create user account." 
             });
             return;
         }
@@ -127,7 +127,7 @@ export async function logOut(req: RequestWithAuth, res: Response) {
         res.status(200).send({
             success: true,
             message: 'Logout successful!',
-            loggedOut: logoutTime
+            loggedAt: logoutTime
         });
         return;
     } catch (e) {
@@ -143,14 +143,15 @@ export async function logOut(req: RequestWithAuth, res: Response) {
 
 export async function update(req: RequestWithAuth, res: Response) {
     try {
-        const { email, userName, name, contactNo, dateOfBirth } = req.body;
-        const oldUser = await getUserAccount(email);
-        
+        const { userName, name, email, contactNo, dateOfBirth } = req.body;
+
+        const oldUser = await getUserAccount(req.email);
+
         const updatedData: User = {
             userName: userName || oldUser.userName,
             password: oldUser.password,
             name: name || oldUser.name,
-            email: oldUser.email,
+            email: email || oldUser.email,
             contactNo: contactNo || oldUser.contactNo,
             dateOfBirth: dateOfBirth || oldUser.dateOfBirth,
             role: oldUser.role,
