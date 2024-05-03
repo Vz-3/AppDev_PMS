@@ -1,7 +1,7 @@
-const cors = require("cors");
-
-import express from "express";
 import "dotenv/config";
+
+const cors = require("cors");
+import express from "express";
 import accountRoute from "./routes/accountRoute";
 import { db } from './models/database/mongodbConfig';
 
@@ -18,9 +18,10 @@ app.get("/", (_ , res) => {
   console.log("% Working %");
 });
 
-app.get("/reset", () => {
+app.get("/reset", (_, res) => {
+  res.send("Databased dropped!");
   db.dropDatabase();
-})
+});
 
 /*
 Post - Create

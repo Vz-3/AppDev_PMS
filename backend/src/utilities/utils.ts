@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 export async function getLocalDate():Promise <Date> {
     const now = new Date();
     const date = new Date(now.toISOString());
-    return date
+    return date;
 }
 
 import { pbkdf2 } from 'crypto';

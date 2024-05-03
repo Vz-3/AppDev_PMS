@@ -32,7 +32,9 @@ export async function authenticate(req: Request, res: Response, next: NextFuncti
 
         const secretKey = `${process.env.SECRET_KEY}:${authPayloadObject.loggedAt}`;
         if (Math.abs(storedDate.getTime() - currentDate.getTime()) <= 1800000) {
+            // console.log(`${storedDate.getTime()} | ${currentDate.getTime()} | ${tokenDate.getTime()} | ${secretKey}`);''
             if (storedDate.getTime()>=tokenDate.getTime()) {
+                console.log("Token expired!");
                 res.status(400).send({
                     message: "You either logged out or have not previously logged in. Please login.",
                 });
@@ -43,7 +45,7 @@ export async function authenticate(req: Request, res: Response, next: NextFuncti
             authorization,
             secretKey,
             async (err: any, userData: any) => {
-                if (err){
+                if (err) {
                     console.log("Invalid JWT detected. Error: ", err);
                     res.status(400).send({
                         message: "Your access has expired. Please login again.",

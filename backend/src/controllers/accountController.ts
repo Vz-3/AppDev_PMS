@@ -94,7 +94,7 @@ export async function logIn(req: Request, res: Response) {
         if (!isValidated) {
             res.status(400).send({ 
                 success: false,
-                message: "Invalid credentials." 
+                message: "Invalid credentials. Passwords does not match!" 
             });
             return;
         }

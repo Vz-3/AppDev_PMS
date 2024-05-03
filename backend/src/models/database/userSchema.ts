@@ -27,14 +27,14 @@ export interface User {
 
 // Mongoose Schema
 export const userSchema: Schema<User> = new Schema({
-        userName: { type: String, required: true, unique: true },
+        userName: { type: String, unique: true , required: true},
         password: { type: String, required: true },
         name: {
             firstName: { type: String, required: true },
             middleName: { type: String },
             lastName: { type: String, required: true }
         },
-        email: { type: String, required: true, unique: true },
+        email: { type: String, unique: true, required: true},
         contactNo: { type: String, required: true },
         dateOfBirth: { type: Date, required: true },
         role: { type: String, required: true, enum: Object.values(Role), default: Role.TENANT},

@@ -36,7 +36,7 @@ export class AccountModel {
             return false;
         }
     }
-
+    
     async getUser(email: string): Promise<User> {
         const userAccount = await db.UserModel.findOne({ email: email });
         if (!userAccount) {
@@ -60,7 +60,8 @@ export class AccountModel {
         const dt = datetime.toISOString();
         const secretKey = `${process.env.SECRET_KEY}:${dt}`;
         const secondsTTL = process.env.PREFERRED_TTL;
-        const authToken = jwt.sign({ email: user.email, _id: user._id, loggedAt: datetime}, secretKey, {expiresIn: secondsTTL});
+        const authToken = jwt.sign({ email: user.email, _id: user._id, loggedAt: dt}, secretKey, {expiresIn: secondsTTL});
+        // console.log(`${secretKey} | ${secondsTTL} | ${dt}`);
         if (!authToken) {
             console.log("User: ", user, " | Date: ", datetime);
             throw new Error('JWT Signing error!');
@@ -71,6 +72,7 @@ export class AccountModel {
     async invalidateAuth(_id: string): Promise<Date> {
         const newLogs = await getLocalDate();
         try {
+            // console.log(`Updating loggedAt with value: ${newLogs} on user:${_id}`);
             await db.UserModel.findByIdAndUpdate(_id, { loggedAt: newLogs });
         } catch (error) {
             throw new Error(`Updating loggedAt with value: ${newLogs} on user:${_id} failed!`);

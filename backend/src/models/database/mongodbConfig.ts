@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { User, userSchema } from "./userSchema";
 
-const connectionString: string = process.env.MONGODB_CONNECTION_STRING || '';
+const connectionString: string = process.env.MONGODB_CONNECTION_STRING!;
 const databaseName: string = 'pms';
 
 const initDatabaseConnection = async () => {
