@@ -5,6 +5,14 @@ import jwt from 'jsonwebtoken';
 
 export class AccountModel {
     async createUser(user: User): Promise<boolean> {
+
+        // Works fine without this email validation but it's a good practice to have it.
+        const userExists = await db.UserModel.findOne({ email: user.email});
+        if (userExists) {
+            console.log("createUser error: User already exists");
+            return false;
+        }
+        
         user.loggedAt = await getLocalDate();
         user.role = user.role || Role.TENANT;
         const user_data = new db.UserModel(user);

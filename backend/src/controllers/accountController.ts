@@ -139,9 +139,46 @@ export async function logOut(req: RequestWithAuth, res: Response) {
         return;
     } catch (e) {
         console.log("Logout error: ", e);
+        if (!res.headersSent) {
+            res.status(400).send({
+                success: false,
+                message: "Logout API error."
+            });
+        }
+        return;
+    }
+    
+};
+
+export async function viewProfile(req: RequestWithAuth, res: Response) {
+    try {
+        const userAccount = await getUserAccount(req.email);
+        if (!userAccount) {
+            res.status(400).send({ 
+                success: false,
+                message: "Failed to retrieve user account." 
+            });
+            return;
+        }
+        const { userName, name, email, contactNo, dateOfBirth, role, loggedAt, unitNo, properties } = userAccount;
+        res.status(200).send({
+            success: true,
+            message: 'User account details.',
+            username: userName,
+            name: name,
+            email: email,
+            contactNo: contactNo,
+            dateOfBirth: dateOfBirth,
+            role: role,
+            loggedAt: loggedAt,
+            unitNo: unitNo,
+            properties:properties
+        });
+    } catch (e) {
+        console.log("View error: ", e);
         res.status(400).send({
             success: false,
-            message: "Logout API error."
+            message: "viewProfile API error."
         });
         return;
     }
@@ -150,21 +187,30 @@ export async function logOut(req: RequestWithAuth, res: Response) {
 
 export async function update(req: RequestWithAuth, res: Response) {
     try {
-        const { userName, name, email, contactNo, dateOfBirth } = req.body;
+        const email = req.email;
+        const { userName, name, newEmail, contactNo, dateOfBirth } = req.body;
 
         const oldUser = await getUserAccount(req.email);
+        
+        if (email !== oldUser.email) {
+            res.status(400).send({
+                success: false,
+                message: "Email does not match the user account.",
+            });
+            return;
+        }
 
         const updatedData: User = {
             userName: userName || oldUser.userName,
             password: oldUser.password,
             name: name || oldUser.name,
-            email: email || oldUser.email,
+            email: newEmail || oldUser.email,
             contactNo: contactNo || oldUser.contactNo,
             dateOfBirth: dateOfBirth || oldUser.dateOfBirth,
             role: oldUser.role,
         };
 
-        const success = await updateUserAccount(updatedData, oldUser);
+        const success = await updateUserAccount(oldUser, updatedData);
 
         if (!success) {
             res.status(400).send({
