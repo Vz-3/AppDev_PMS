@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { User, userSchema } from "./userSchema";
-
+import { Building, buildingSchema, unitSchema, Unit } from "./propertySchema";
 const connectionString: string = process.env.MONGODB_CONNECTION_STRING!;
 const databaseName: string = 'pms';
 
@@ -25,9 +25,13 @@ const dropDatabase = async () => {
 }
 
 const UserModel = mongoose.model<User>('User', userSchema);
+const BuildingModel = mongoose.model<Building>('Building', buildingSchema);
+const UnitModel = mongoose.model<Unit>('Unit', unitSchema);
 
 export const db = {
     initDatabaseConnection,
     dropDatabase,
-    UserModel
+    UserModel,
+    BuildingModel,
+    UnitModel
 }
