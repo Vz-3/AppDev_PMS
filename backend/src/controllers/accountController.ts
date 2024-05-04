@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { Role, User } from '../models/database/userSchema';
-import { createUserAccount, deleteUserAccount, getUserAccount, updateUserAccount, validateUserPassword, loginUser, logoutUser } from '../services/accountService';
+import { createUserAccount, deleteUserAccount, getUserAccount, updateUserAccount, updateUserPassword, validateUserPassword, loginUser, logoutUser } from '../services/accountService';
 import { RequestWithAuth } from '../types';
 import { getLocalDate } from '../utilities/utils';
 
@@ -220,7 +220,7 @@ export async function resetPassword(req: RequestWithAuth, res: Response) {
             role: userAccount.role,
         };
 
-        const success = await updateUserAccount(userAccount, updatedData);
+        const success = await updateUserPassword(userAccount, newPassword);
 
         if (!success) {
             res.status(400).send({
@@ -261,6 +261,7 @@ export async function update(req: RequestWithAuth, res: Response) {
             return;
         }
 
+        // Slight caveat of name accepting empty fields due to being an array/dict. 
         const updatedData: User = {
             userName: userName || oldUser.userName,
             password: oldUser.password,
