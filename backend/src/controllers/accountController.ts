@@ -43,7 +43,8 @@ export async function register(req: Request, res: Response) {
         console.log("Register error: ", e);
         res.status(400).send({
             success: false,
-            message: "Register API error."
+            message: "Register API error.",
+            e
         });
         return;
     }
@@ -78,7 +79,8 @@ export async function deleteAccount(req: RequestWithAuth, res: Response) {
         console.log("Delete Account error: ", e);
         res.status(400).send({
             success: false,
-            message: "Delete Account API error."
+            message: "Delete Account API error.",
+            e
         });
         return;
     }
@@ -121,7 +123,8 @@ export async function logIn(req: Request, res: Response) {
         console.log("Login error: ", e);
         res.status(400).send({
             success: false,
-            message: "Login API error."
+            message: "Login API error.",
+            e
         });
         return;
     }
@@ -142,7 +145,8 @@ export async function logOut(req: RequestWithAuth, res: Response) {
         if (!res.headersSent) {
             res.status(400).send({
                 success: false,
-                message: "Logout API error."
+                message: "Logout API error.",
+                e
             });
         }
         return;
@@ -156,7 +160,7 @@ export async function viewProfile(req: RequestWithAuth, res: Response) {
         if (!userAccount) {
             res.status(400).send({ 
                 success: false,
-                message: "Failed to retrieve user account." 
+                message: "Failed to retrieve user account."
             });
             return;
         }
@@ -178,7 +182,8 @@ export async function viewProfile(req: RequestWithAuth, res: Response) {
         console.log("View error: ", e);
         res.status(400).send({
             success: false,
-            message: "viewProfile API error."
+            message: "viewProfile API error.",
+            e
         });
         return;
     }
@@ -235,6 +240,7 @@ export async function resetPassword(req: RequestWithAuth, res: Response) {
         res.status(400).send({
             success: false,
             message: "Reset API error.",
+            e
         });
         return;
     }
@@ -284,6 +290,7 @@ export async function update(req: RequestWithAuth, res: Response) {
         res.status(400).send({
             success: false,
             message: "Update API error.",
+            e
         });
         return;
     }
