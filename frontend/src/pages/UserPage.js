@@ -1,8 +1,7 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { useTable, useSortBy, usePagination } from 'react-table';
 import { Link, useNavigate } from 'react-router-dom';
-import { Navbar, Container, Button, Dropdown } from 'react-bootstrap';
-import CustomNavbar from './Navbar'; // Import the CustomNavbar component
+import { Navbar, Nav, Container, Dropdown, Button } from 'react-bootstrap';
 import '../styles/userpage.css';
 
 function UserPage() {
@@ -77,7 +76,9 @@ function UserPage() {
 
     return (
         <>
-            <CustomNavbar userRole="Admin" handleLogout={() => console.log("Logging out")} /> {/* Pass appropriate props */}
+            <Navbar bg="dark" variant="dark" fixed="top" expand="lg">
+                {/* Navbar component as before */}
+            </Navbar>
             <Container className="user-container">
                 <Button className="button-new-user" onClick={() => navigate('/create-user')}>+ New User</Button>
                 <div className="table-container">
