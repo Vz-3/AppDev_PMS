@@ -39,7 +39,7 @@ function Home() {
               <Nav.Link href="/Home">Home</Nav.Link>
               <Nav.Link href="/Tenants">Tenants</Nav.Link>
               <Nav.Link href="#Units">Units</Nav.Link>
-              <Nav.Link href="#Users">Users</Nav.Link>
+              <Nav.Link href="/Users">Users</Nav.Link>
             </Nav>
             <Nav>
               {/* Display user role dynamically */}

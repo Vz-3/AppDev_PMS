@@ -36,7 +36,7 @@ function Tenants() {
               <Nav.Link href="/Home">Home</Nav.Link>
               <Nav.Link href="/Tenants">Tenants</Nav.Link>
               <Nav.Link href="#Units">Units</Nav.Link>
-              <Nav.Link href="#Users">Users</Nav.Link>
+              <Nav.Link href="/Users">Users</Nav.Link>
             </Nav>
             <Nav>
               <Dropdown align="end">
@@ -59,7 +59,7 @@ function Tenants() {
         </Container>
       </Navbar>
 
-      <div>
+      <div className="tenantWidget">
         <Button className={`addTenantButton ${isClicked ? "clicked" : ""}`} onClick={handleClick}>
           <text>Add Tenant</text>
         </Button>
@@ -73,7 +73,137 @@ function Tenants() {
             </div>
             <div className="tenantInfo">
               <span>Arjay Aquino</span><br />
-              <span>Unit Number: 212</span>
+              <span>Unit Number: 212</span><br />
+              <span>Building: Alpha</span>
+            </div>
+          </div>
+          <div className="tenantCell">
+            <div className="imageContainer">
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Arjay Aquino</span><br />
+              <span>Unit Number: 212</span><br />
+              <span>Building: Alpha</span>
+            </div>
+          </div>
+          <div className="tenantCell">
+            <div className="imageContainer">
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Arjay Aquino</span><br />
+              <span>Unit Number: 212</span><br />
+              <span>Building: Alpha</span>
+            </div>
+          </div>
+          <div className="tenantCell">
+            <div className="imageContainer">
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Arjay Aquino</span><br />
+              <span>Unit Number: 212</span><br />
+              <span>Building: Alpha</span>
+            </div>
+          </div>
+          <div className="tenantCell">
+            <div className="imageContainer">
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Arjay Aquino</span><br />
+              <span>Unit Number: 212</span><br />
+              <span>Building: Alpha</span>
+            </div>
+          </div>
+          <div className="tenantCell">
+            <div className="imageContainer">
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Arjay Aquino</span><br />
+              <span>Unit Number: 212</span><br />
+              <span>Building: Alpha</span>
+            </div>
+          </div>
+          <div className="tenantCell">
+            <div className="imageContainer">
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Arjay Aquino</span><br />
+              <span>Unit Number: 212</span><br />
+              <span>Building: Alpha</span>
+            </div>
+          </div>
+          <div className="tenantCell">
+            <div className="imageContainer">
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Arjay Aquino</span><br />
+              <span>Unit Number: 212</span><br />
+              <span>Building: Alpha</span>
+            </div>
+          </div>
+          <div className="tenantCell">
+            <div className="imageContainer">
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Arjay Aquino</span><br />
+              <span>Unit Number: 212</span><br />
+              <span>Building: Alpha</span>
+            </div>
+          </div><div className="tenantCell">
+            <div className="imageContainer">
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Arjay Aquino</span><br />
+              <span>Unit Number: 212</span><br />
+              <span>Building: Alpha</span>
+            </div>
+          </div>
+          <div className="tenantCell">
+            <div className="imageContainer">
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Arjay Aquino</span><br />
+              <span>Unit Number: 212</span><br />
+              <span>Building: Alpha</span>
+            </div>
+          </div>
+          <div className="tenantCell">
+            <div className="imageContainer">
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Arjay Aquino</span><br />
+              <span>Unit Number: 212</span><br />
+              <span>Building: Alpha</span>
+            </div>
+          </div>
+          <div className="tenantCell">
+            <div className="imageContainer">
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Arjay Aquino</span><br />
+              <span>Unit Number: 212</span><br />
+              <span>Building: Alpha</span>
+            </div>
+          </div>
+          <div className="tenantCell">
+            <div className="imageContainer">
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Arjay Aquino</span><br />
+              <span>Unit Number: 212</span><br />
+              <span>Building: Alpha</span>
             </div>
           </div>
           <div className="tenantCell">
@@ -83,7 +213,30 @@ function Tenants() {
             </div>
             <div className="tenantInfo">
               <span>Lorem Ipsum</span><br />
-              <span>Unit Number: 276</span>
+              <span>Unit Number: 276</span><br />
+              <span>Building: Beta</span>
+            </div>
+          </div>
+          <div className="tenantCell">
+            <div className="imageContainer">
+              {/* Placeholder image */}
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Lorem Ipsum</span><br />
+              <span>Unit Number: 276</span><br />
+              <span>Building: Delta</span>
+            </div>
+          </div>
+          <div className="tenantCell">
+            <div className="imageContainer">
+              {/* Placeholder image */}
+              <img className="tenantImg" src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg" alt="sample pic" />
+            </div>
+            <div className="tenantInfo">
+              <span>Lorem Ipsum</span><br />
+              <span>Unit Number: 276</span><br />
+              <span>Building: Alpha</span>
             </div>
           </div>
         </div>

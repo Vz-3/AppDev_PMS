@@ -1,13 +1,11 @@
 .tenantDashboard {
-    width: 90%; /* Use a percentage value for responsiveness */
-    max-width: 4280px; /* Set a maximum width */
-    min-width: 1400px;
-    max-height: 800px;
-    min-height: 400px;
+    width: 100%;
+    height: 80vb;
     background-color: aliceblue;
     border-radius: 25px;
     padding-top: 10px;
-    margin: 20px auto; /* Center the dashboard horizontally */
+    margin: 50vb 20px; /* Center the dashboard horizontally */
+    overflow: auto; /* Add overflow for scrolling if needed */
 }
   
 .tenantDashboard h2 {
@@ -17,18 +15,25 @@
     border-radius: 25px;
     margin-top: 0; /* Remove default margin */
 }
+
+.tenantWidget {
+    display:block;
+    align-self:normal;
+    margin: 20px;
+}
   
-/* Media query for screens larger than 768px (tablets and desktops) */
-@media (min-width: 768px) {
-    .dashboard {
-        width: 80%; /* Adjust the width as needed for larger screens */
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .tenantCell {
+      width: calc(100% - 20px); /* Full width on smaller screens */
     }
 }
 
 /* tenants.css */
 .tenantList {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content:flex-start; /* Distribute items evenly */
   }
   
   .imageContainer {
@@ -46,16 +51,14 @@
   }
   
 .tenantCell {
-    color:aliceblue;
-    width: fit-content;
-    height: fit-content;
-    padding: 2vb;
-    background-color: rgb(88, 88, 88);
+    color: rgb(60, 67, 67);
+    width: calc(25% - 20px); /* Set initial width to half minus margin */
+    padding: 20px;
+    background-color: rgb(209, 233, 255);
     border-radius: 10px;
-    margin: 20px;
-    margin-right: 20px; /* Add horizontal spacing between cells */
+    margin: 10px;
     display: flex;
-    margin-bottom: 10px;
+    flex-direction: row;
 }
 
 .addTenantButton {

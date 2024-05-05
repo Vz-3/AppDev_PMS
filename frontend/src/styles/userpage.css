@@ -1,0 +1,47 @@
+.user-container {
+    background-color: white;
+    padding: 20px;
+    margin-top: 80px; /* Adjust this value based on your navbar height */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.table-container {
+    overflow-x: auto; /* Ensures the table is scrollable on small screens */
+}
+
+.table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Add custom styling for buttons if needed */
+.button-new-user {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button-new-user:hover {
+    background-color: #0056b3;
+}
+
+/* Additional styles for buttons */
+button {
+    cursor: pointer;
+}
