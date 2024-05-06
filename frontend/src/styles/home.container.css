@@ -145,3 +145,7 @@
     bottom: 5px;
     left: 5px;
 }
+.scroll{
+    height: 390px;
+    overflow-y: auto;
+}
