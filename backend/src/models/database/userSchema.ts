@@ -22,7 +22,6 @@ export interface User {
     role: Role,
     loggedAt?: Date,
     unitNo?: Number,
-    properties?: Types.ObjectId[],
 }
 
 // Mongoose Schema
@@ -40,5 +39,4 @@ export const userSchema: Schema<User> = new Schema({
         role: { type: String, required: true, enum: Object.values(Role), default: Role.TENANT},
         loggedAt: { type: Date },
         unitNo: { type: Number, default: 0},
-        properties: { type: [{ type: Types.ObjectId, ref: 'Property' }], default: []},
 });
