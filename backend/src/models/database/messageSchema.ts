@@ -1,4 +1,4 @@
-import { BooleanSchemaDefinition, Schema, Types } from "mongoose";
+import { Schema, Types } from "mongoose";
 
 export enum MessageType {
     DM = "direct message",

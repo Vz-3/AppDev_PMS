@@ -26,3 +26,4 @@ router.patch("/hide", hideMessageAPI);
 router.patch("/hide_all", authenticate, hideAllMessagesAPI);
 router.patch("/announcement/pin", authenticate, pinAnnouncementAPI);
 router.patch("/announcement/unpin", authenticate, unpinAnnouncementAPI);
+export default router;
