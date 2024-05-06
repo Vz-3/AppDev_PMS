@@ -1,72 +1,64 @@
-import React, { useState } from "react";
-
-import "../styles/global.css"; // Import your CSS file
+import React, { useState, useEffect } from "react";
+import { useAuth } from "./AuthContext"; // Ensure this path is correct
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const { isLoggedIn, login, logout } = useAuth();
+
+  // Effect for auto-logout when accessing login page if already logged in
+  useEffect(() => {
+    if (isLoggedIn) {
+      logout();
+    }
+  }, [isLoggedIn, logout]); // Depend on isLoggedIn to ensure correct triggering
 
   const handleLogin = (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
-
-    // Check if username or password is empty
+    event.preventDefault();
     if (!username || !password) {
       alert("Please enter both username and password.");
       return;
     }
 
-    // Implement login logic here (e.g., API call, validation)
-    console.log("Logging in with:", username, password);
-
-    // Assuming successful login:
-    // Redirect to home page
-    window.location.href = "/home";
+    console.log("Attempting to log in with:", username, password);
+    login(); // Update the context and localStorage
+    navigate("/home", { replace: true }); // Navigate to home and replace current entry in the history stack
   };
 
   return (
     <div className="card">
-      <div className="Login">
-        <label>Login</label>
-        <br />
-      </div>
-      <div className="credentials">
-        <br />
-        <br />
-        <label htmlFor="user_pass">Username</label>
-        <br />
-        <input
-          type="text"
-          id="user_pass"
-          className="tbox"
-          placeholder="username123"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <br />
-        <br />
-        <label htmlFor="user_pwd">Password</label>
-        <br />
-        <input
-          type="password"
-          id="user_pwd"
-          className="tbox"
-          placeholder="passWord123"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <br />
-        <br />
-        <br />
-        {/* Disable the submit button if username or password is empty */}
-        <button
-          type="submit"
-          className="submit"
-          onClick={handleLogin}
-          disabled={!username || !password}
-        >
-          Submit
-        </button>
-      </div>
+      <form onSubmit={handleLogin}>
+        <div className="Login">
+          <label>Login</label>
+          <br />
+        </div>
+        <div className="credentials">
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="tbox"
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="tbox"
+          />
+          <button
+            type="submit"
+            className="submit"
+            disabled={!username || !password}
+          >
+            Submit
+          </button>
+        </div>
+      </form>
     </div>
   );
 }

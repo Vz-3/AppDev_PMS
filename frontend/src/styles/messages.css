@@ -1,0 +1,17 @@
+.bg{
+    display: flexbox;
+    background-color: white;
+    height: 720px;
+    width: 1280px;
+    padding: 2vh;
+    border-radius: 25px;
+    position: relative;
+    
+}
+
+.bg h2{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    background-color: rgb(60, 67, 67);
+    border-radius: 25px;
+}
