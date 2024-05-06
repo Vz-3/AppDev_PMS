@@ -6,16 +6,12 @@
     background-color: rgb(227, 241, 253);    
     border-radius: 25px;
     padding: 10px;
-<<<<<<< HEAD
+
     margin-top: 300px;
     margin-bottom: 100px;
     justify-content: center;
     align-items: center;
     margin-left: 125px;
-=======
-    margin-top: 10vh;
-    display: flexbox;
->>>>>>> 0a2dca2df782fac7711d9546de0e251c2cd73275
 }
 
 .dashboard h2{
@@ -128,13 +124,21 @@
     border-width: 2.5px;
     border-style: solid;
     border-radius: 10px;
-    height: 250px;
+    height: 300px;
     padding: 10px;
 }
 
 .prompt input{
     margin: 5px;
     border-radius: 5px;
+}
+
+.prompt textarea{
+    width: 210px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 10px;
+    height: 75px;
 }
 
 .prompt button{
