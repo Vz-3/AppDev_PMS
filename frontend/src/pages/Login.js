@@ -1,72 +1,55 @@
 import React, { useState } from "react";
-
-import "../styles/global.css"; // Import your CSS file
+import { useAuth } from "./AuthContext"; // Ensure this path is correct
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { setIsLoggedIn } = useAuth(); // Access the authentication state
+  const navigate = useNavigate(); // Instantiate the useNavigate hook
 
   const handleLogin = (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
-
-    // Check if username or password is empty
+    event.preventDefault();
     if (!username || !password) {
       alert("Please enter both username and password.");
       return;
     }
-
-    // Implement login logic here (e.g., API call, validation)
     console.log("Logging in with:", username, password);
-
-    // Assuming successful login:
-    // Redirect to home page
-    window.location.href = "/home";
+    setIsLoggedIn(true); // Update the login state
+    navigate("/home"); // Use navigate instead of window.location.href
   };
 
   return (
     <div className="card">
+      <form onSubmit={handleLogin}>
       <div className="Login">
         <label>Login</label>
         <br />
       </div>
       <div className="credentials">
-        <br />
-        <br />
-        <label htmlFor="user_pass">Username</label>
-        <br />
         <input
           type="text"
-          id="user_pass"
-          className="tbox"
-          placeholder="username123"
+          placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          className="tbox"
         />
-        <br />
-        <br />
-        <label htmlFor="user_pwd">Password</label>
-        <br />
+        
         <input
           type="password"
-          id="user_pwd"
-          className="tbox"
-          placeholder="passWord123"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className="tbox"
         />
-        <br />
-        <br />
-        <br />
-        {/* Disable the submit button if username or password is empty */}
         <button
-          type="submit"
-          className="submit"
-          onClick={handleLogin}
-          disabled={!username || !password}
-        >
+         type="submit" 
+         className="submit"
+         disabled={!username || !password}>
           Submit
         </button>
-      </div>
+        </div>
+      </form>
     </div>
   );
 }

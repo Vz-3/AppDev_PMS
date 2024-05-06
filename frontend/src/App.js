@@ -1,15 +1,24 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import Login from "./pages/Login.js";
 import WelcomePage from "./pages/WelcomePage";
 import Home from "./pages/Home"; // Import the Home component
 import Tenants from "./pages/Tenants";
 import UserPage from "./pages/UserPage";
+import CustomNav from "./components/navbar.component.js";
+import { useAuth } from "./pages/AuthContext";
 
 function App() {
+  const { isLoggedIn } = useAuth(true);
+
   return (
     <>
+      {isLoggedIn && (
+        <header>
+          <CustomNav />
+        </header>
+      )}
       <div>
         <BrowserRouter>
           <Routes>

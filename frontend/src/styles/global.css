@@ -30,6 +30,7 @@ code {
 
 
 .Login{
+  margin-bottom: 30px;
   font-size: 50px;
   font-weight: bold;
   text-align: center;
@@ -38,8 +39,9 @@ code {
 .tbox{
   border-radius: 5px;
   width: 350px;
-  height: 25px;
+  height: 40px;
   border-color: #272c47;
+  margin-bottom: 30px;
 }
 
 .tbox:focus{
@@ -51,6 +53,7 @@ code {
 }
 
 .submit{
+  margin-top: 30px;
   padding: 10px 20px;
   background-color: #272c47;
   border: none;
