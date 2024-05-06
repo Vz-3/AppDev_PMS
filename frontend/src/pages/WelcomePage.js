@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from "./AuthContext";
 import '../styles/prev.css'; // Import your CSS file
 
 function WelcomePage() {
+  const navigate = useNavigate();
+  const { isLoggedIn } = useAuth();
+
   useEffect(() => {
-    document.body.classList.add('WelcomePage'); // Add the class to body when component mounts
-    return () => {
-      document.body.classList.remove('WelcomePage'); // Remove the class when component unmounts
-    };
-  }, []);
+    if (isLoggedIn) {
+      navigate('/'); // Redirect to home page if already logged in
+    }
+  }, [isLoggedIn, navigate]); // Depend on isLoggedIn and navigate
 
   return (
     <body className="WelcomePage">
@@ -26,11 +29,19 @@ function WelcomePage() {
       <div className="description">
         <span style={{ color: 'white' }}>Welcome to our apartment management system!</span>
       </div>
-      <div className="button">
-        <Link to="/login">
-          <button>Continue</button>
-        </Link>
-      </div>
+      {isLoggedIn ? (
+        <div className="button">
+          <Link to="/home">
+            <button>Continue to Home</button>
+          </Link>
+        </div>
+      ) : (
+        <div className="button">
+          <Link to="/login">
+            <button>Continue</button>
+          </Link>
+        </div>
+      )}
     </body>
   );
 }

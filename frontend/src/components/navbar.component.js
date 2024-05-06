@@ -21,7 +21,7 @@ function CustomNav() {
   return (
     <Navbar bg="dark" variant="dark" fixed="top" expand="lg">
       <Container>
-        <Navbar.Brand href="/Home">Logo</Navbar.Brand>
+        <Navbar.Brand href="/">Logo</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -37,14 +37,9 @@ function CustomNav() {
                 {userRole || "User"}
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                {/* Use Link component for logout */}
+                {/* Handle logout directly in onClick */}
                 <Dropdown.Item onClick={handleLogout}>
-                  <Link
-                    to="/Login.js"
-                    style={{ color: "inherit", textDecoration: "none" }}
-                  >
-                    Log Out
-                  </Link>
+                  Log Out
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
