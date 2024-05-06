@@ -1,16 +1,16 @@
 //@ts-nocheck
 import { Router } from "express";
-import { register, deleteAccount, logIn, logOut, update, viewProfile, resetPassword } from "../controllers/accountController";
+import { registerAPI, deleteAccountAPI, logInAPI, logOutAPI, updateAPI, viewProfileAPI, resetPasswordAPI } from "../controllers/accountController";
 import { authenticate } from "../middleware/jwt-auth";
 
 const router = Router();
 
 //refresh token function?
-router.post("/register", register);
-router.patch("/update", authenticate, update);
-router.delete("/delete", authenticate, deleteAccount);
-router.post("/login", logIn);
-router.get("/logout", authenticate, logOut);
-router.get("/view", authenticate, viewProfile);
-router.post("/reset_password", authenticate, resetPassword);
+router.post("/register", registerAPI);
+router.patch("/update", authenticate, updateAPI);
+router.delete("/delete", authenticate, deleteAccountAPI);
+router.post("/login", logInAPI);
+router.get("/logout", authenticate, logOutAPI);
+router.get("/view", authenticate, viewProfileAPI);
+router.post("/reset_password", authenticate, resetPasswordAPI);
 export default router;

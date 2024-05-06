@@ -4,7 +4,7 @@ import { createUserAccount, deleteUserAccount, getUserAccount, updateUserAccount
 import { RequestWithAuth } from '../types';
 import { getLocalDate } from '../utilities/utils';
 
-export async function register(req: Request, res: Response) {
+export async function registerAPI(req: Request, res: Response) {
     try {
         const { userName, password, name, email, contactNo, dateOfBirth, role } = req.body;
         if (!userName || !password || !name || !email || !contactNo || !dateOfBirth) {
@@ -50,7 +50,7 @@ export async function register(req: Request, res: Response) {
     }
 };
 
-export async function deleteAccount(req: RequestWithAuth, res: Response) {
+export async function deleteAccountAPI(req: RequestWithAuth, res: Response) {
     try {
         const email = req.email;
         console.log("Email: ", email);
@@ -86,7 +86,7 @@ export async function deleteAccount(req: RequestWithAuth, res: Response) {
     }
 };
 
-export async function logIn(req: Request, res: Response) {
+export async function logInAPI(req: Request, res: Response) {
     try {
         const { email, password } = req.body;
         if (!email || !password) {
@@ -130,7 +130,7 @@ export async function logIn(req: Request, res: Response) {
     }
 };
 
-export async function logOut(req: RequestWithAuth, res: Response) {
+export async function logOutAPI(req: RequestWithAuth, res: Response) {
     try {
         const logoutTime = await logoutUser(req._id);
         
@@ -154,7 +154,7 @@ export async function logOut(req: RequestWithAuth, res: Response) {
     
 };
 
-export async function viewProfile(req: RequestWithAuth, res: Response) {
+export async function viewProfileAPI(req: RequestWithAuth, res: Response) {
     try {
         const userAccount = await getUserAccount(req.email);
         if (!userAccount) {
@@ -188,7 +188,7 @@ export async function viewProfile(req: RequestWithAuth, res: Response) {
     }
 }
 
-export async function resetPassword(req: RequestWithAuth, res: Response) {
+export async function resetPasswordAPI(req: RequestWithAuth, res: Response) {
     try {
         const { oldPassword, newPassword } = req.body;
         if (!oldPassword || !newPassword) {
@@ -245,7 +245,7 @@ export async function resetPassword(req: RequestWithAuth, res: Response) {
     }
 }
 
-export async function update(req: RequestWithAuth, res: Response) {
+export async function updateAPI(req: RequestWithAuth, res: Response) {
     try {
         const email = req.email;
         const { userName, name, newEmail, contactNo, dateOfBirth } = req.body;

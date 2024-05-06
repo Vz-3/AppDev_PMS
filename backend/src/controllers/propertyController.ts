@@ -395,3 +395,57 @@ export async function updatePropertyAPI(req: RequestWithAuth, res: Response) {
         return;
     }
 }
+
+export async function updateUnitPropertyAPI(req: RequestWithAuth, res: Response) {
+    try {
+        const userId = req._id;
+        const user = await getUserAccountById(userId);
+        const { unitId, unitType, status, tenant, leastStartDate, leastEndDate, unitMonthlyCost, modeOfPayment, paymentHistory, misc } = req.body;
+        if (!user || !unitId) {
+            res.status(400).send({ 
+                success: false,
+                message: "Please provide all required fields." 
+            });
+            return;
+        }
+
+        const unit = await getPropertyUnit(unitId);
+        if (!unit) {
+            res.status(400).send({ 
+                success: false,
+                message: "Unit not found." 
+            });
+            return;
+        }
+
+        const updatedUnit: Unit = {
+            ...unit,
+            unitType: unitType || unit.unitType,
+            status: status || unit.status,
+            tenant: tenant || unit.tenant,
+            leastStartDate: leastStartDate || unit.leastStartDate,
+            leastEndDate: leastEndDate || unit.leastEndDate,
+            unitMonthlyCost: unitMonthlyCost || unit.unitMonthlyCost,
+            modeOfPayment: modeOfPayment || unit.modeOfPayment,
+            paymentHistory: paymentHistory || unit.paymentHistory,
+            misc: misc || unit.misc
+        }
+
+        const success = await assignUnit(user, updatedUnit);
+        if (!success) {
+            res.status(400).send({ 
+                success: false,
+                message: "Failed to update unit." 
+            });
+            return;
+        }
+    } catch (error) {
+        console.log("Update unit error: ", error);
+        res.status(400).send({
+            success: false,
+            message: "Update unit API error.",
+            error
+        });
+        return;
+    }
+}
