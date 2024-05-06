@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { Router } from "express";
-import { registerAPI, deleteAccountAPI, logInAPI, logOutAPI, updateAPI, viewProfileAPI, resetPasswordAPI, getTenantsAPI } from "../controllers/accountController";
+import { registerAPI, deleteAccountAPI, logInAPI, logOutAPI, updateAPI, viewProfileAPI, resetPasswordAPI, getTenantsAPI, getAllUsersAPI } from "../controllers/accountController";
 import { authenticate } from "../middleware/jwt-auth";
 
 const router = Router();
@@ -14,4 +14,5 @@ router.get("/logout", authenticate, logOutAPI);
 router.get("/view", authenticate, viewProfileAPI);
 router.post("/reset_password", authenticate, resetPasswordAPI);
 router.get("/tenants/view", getTenantsAPI);
+router.get("/users/view", getAllUsersAPI); // for messaging purposes. possibly dropdown? reflect Last name, but store Id to pass
 export default router;

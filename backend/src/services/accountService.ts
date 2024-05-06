@@ -46,6 +46,10 @@ export async function logoutUser(_id: string): Promise<Date>{
     return await accountModel.invalidateAuth(_id);
 }
 
+export async function getAllUsers(): Promise<User[]> {
+    return accountModel.getAllUsers();
+}
+
 export async function getUserAccounts(): Promise<User[]> {
     return accountModel.getTenants();
 }

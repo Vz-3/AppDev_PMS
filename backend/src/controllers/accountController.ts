@@ -296,7 +296,7 @@ export async function updateAPI(req: RequestWithAuth, res: Response) {
     }
 }
 
-export async function getTenantsAPI(req: RequestWithAuth, res: Response) {
+export async function getTenantsAPI(req: Request, res: Response) {
     try {
         const tenants = await getUserAccounts();
         if (!tenants) {
@@ -321,4 +321,29 @@ export async function getTenantsAPI(req: RequestWithAuth, res: Response) {
         return;
     }
 }
-// view tenants
+
+export async function getAllUsersAPI(req: Request, res: Response) {
+    try {
+        const users = await getUserAccounts();
+        if (!users) {
+            res.status(400).send({ 
+                success: false,
+                message: "Failed to retrieve users."
+            });
+            return;
+        }
+        res.status(200).send({
+            success: true,
+            message: 'Users list.',
+            users: users,
+        });
+    } catch (e) {
+        console.log("View error: ", e);
+        res.status(400).send({
+            success: false,
+            message: "getAllUsers API error.",
+            e
+        });
+        return;
+    }
+}

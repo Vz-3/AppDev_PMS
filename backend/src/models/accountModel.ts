@@ -106,4 +106,14 @@ export class AccountModel {
             return [];
         }
     }
+
+    async getAllUsers(): Promise<User[]> {
+        try {
+            const userAccounts = await db.UserModel.find();
+            return userAccounts;
+        } catch (error) {
+            console.log("getAllUsers error: ", error);
+            return [];
+        }
+    }
 }
