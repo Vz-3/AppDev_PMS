@@ -4,6 +4,7 @@ const cors = require("cors");
 import express from "express";
 import accountRoute from "./routes/accountRoute";
 import propertyRoute from "./routes/propertyRoute";
+import messageRoute from "./routes/messageRoute";
 import { db } from './models/database/mongodbConfig';
 
 db.initDatabaseConnection();
@@ -11,8 +12,10 @@ db.initDatabaseConnection();
 const app = express();
 const port = process.env.PORT;
 
+// Middleware
 app.use(cors({origin: 'http://localhost:3000'}));
 app.use(express.json());
+
 
 app.get("/", (_ , res) => {
   res.send("Connected to the server");
@@ -35,6 +38,7 @@ Get - Read
 const apiRoutes = {
   "/account" : accountRoute,
   "/property" : propertyRoute,
+  "/message" : messageRoute
 };
 
 for (const key of Object.keys(apiRoutes)) {

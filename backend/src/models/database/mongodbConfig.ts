@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 import { User, userSchema } from "./userSchema";
 import { Building, buildingSchema, unitSchema, Unit } from "./propertySchema";
+import { Message, messageSchema } from "./messageSchema";
+
 const connectionString: string = process.env.MONGODB_CONNECTION_STRING!;
 const databaseName: string = 'pms';
 
@@ -27,11 +29,13 @@ const dropDatabase = async () => {
 const UserModel = mongoose.model<User>('User', userSchema);
 const BuildingModel = mongoose.model<Building>('Building', buildingSchema);
 const UnitModel = mongoose.model<Unit>('Unit', unitSchema);
+const MessageModel = mongoose.model<Message>('Message', messageSchema);
 
 export const db = {
     initDatabaseConnection,
     dropDatabase,
     UserModel,
     BuildingModel,
-    UnitModel
+    UnitModel,
+    MessageModel
 }
