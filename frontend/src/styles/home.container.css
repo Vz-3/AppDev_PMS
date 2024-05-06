@@ -6,11 +6,16 @@
     background-color: rgb(227, 241, 253);    
     border-radius: 25px;
     padding: 10px;
+<<<<<<< HEAD
     margin-top: 300px;
     margin-bottom: 100px;
     justify-content: center;
     align-items: center;
     margin-left: 125px;
+=======
+    margin-top: 10vh;
+    display: flexbox;
+>>>>>>> 0a2dca2df782fac7711d9546de0e251c2cd73275
 }
 
 .dashboard h2{
@@ -147,4 +152,8 @@
     position: absolute;
     bottom: 5px;
     left: 5px;
+}
+.scroll{
+    height: 390px;
+    overflow-y: auto;
 }
