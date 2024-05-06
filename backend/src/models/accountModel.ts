@@ -96,4 +96,14 @@ export class AccountModel {
         }
         return newLogs;
     }
+
+    async getTenants(): Promise<User[]> {
+        try {
+            const userAccounts = await db.UserModel.find({role: Role.TENANT});
+            return userAccounts;
+        } catch (error) {
+            console.log("getUserAccounts error: ", error);
+            return [];
+        }
+    }
 }

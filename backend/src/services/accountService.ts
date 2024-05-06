@@ -1,4 +1,4 @@
-import { Role, User } from "../models/database/userSchema";
+import { User } from "../models/database/userSchema";
 import { generateHash } from "../utilities/utils";
 import { AccountModel } from "../models/accountModel";
 
@@ -44,4 +44,8 @@ export async function loginUser(user: User, dt: Date): Promise<string> {
 
 export async function logoutUser(_id: string): Promise<Date>{
     return await accountModel.invalidateAuth(_id);
+}
+
+export async function getUserAccounts(): Promise<User[]> {
+    return accountModel.getTenants();
 }

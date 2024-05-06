@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { Role, User } from '../models/database/userSchema';
-import { createUserAccount, deleteUserAccount, getUserAccount, updateUserAccount, updateUserPassword, validateUserPassword, loginUser, logoutUser } from '../services/accountService';
+import { createUserAccount, deleteUserAccount, getUserAccount, updateUserAccount, updateUserPassword, validateUserPassword, loginUser, logoutUser, getUserAccounts } from '../services/accountService';
 import { RequestWithAuth } from '../types';
 import { getLocalDate } from '../utilities/utils';
 
@@ -296,3 +296,29 @@ export async function updateAPI(req: RequestWithAuth, res: Response) {
     }
 }
 
+export async function getTenantsAPI(req: RequestWithAuth, res: Response) {
+    try {
+        const tenants = await getUserAccounts();
+        if (!tenants) {
+            res.status(400).send({ 
+                success: false,
+                message: "Failed to retrieve tenants."
+            });
+            return;
+        }
+        res.status(200).send({
+            success: true,
+            message: 'Tenants list.',
+            tenants: tenants,
+        });
+    } catch (e) {
+        console.log("View error: ", e);
+        res.status(400).send({
+            success: false,
+            message: "getTenants API error.",
+            e
+        });
+        return;
+    }
+}
+// view tenants
