@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Container, Navbar, Nav, Dropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 function CustomNav() {
   const [userRole, setUserRole] = useState(null);
@@ -19,7 +18,7 @@ function CustomNav() {
   };
 
   return (
-    <Navbar bg="dark" variant="dark" fixed="top" expand="lg">
+    <Navbar bg="dark" variant="dark" fixed="top" expand="lg" expanded="true">
       <Container>
         <Navbar.Brand href="/">Logo</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

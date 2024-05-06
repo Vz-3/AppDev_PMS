@@ -10,7 +10,7 @@ import check from "../dashboard icons/check.png"
 import clock from "../dashboard icons/clock.png"
 import envelope from "../dashboard icons/envelope.png"
 import user from "../dashboard icons/user.png"
-
+import CustomNav from "../components/navbar.component";
 
 function Home() {
   const [unitInfo, setUnitInfo] = useState([]);
@@ -27,6 +27,10 @@ function Home() {
   };
 
   return (
+    <>
+    <header>
+      <CustomNav />
+    </header>
     <div>
       {/* Your Home page content here */}
       <Container className="dashboard">
@@ -145,6 +149,7 @@ function Home() {
         </div>
       </Container>
     </div>
+    </>
   );
 }
 

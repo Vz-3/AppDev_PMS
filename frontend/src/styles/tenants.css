@@ -6,6 +6,24 @@
     padding-top: 10px;
     margin-top: 0vb;
     overflow: auto;
+    margin-left: 125px;
+}
+
+/* Chrome, Edge, and Safari */
+.tenantDashboard::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+    
+}
+
+.tenantDashboard::-webkit-scrollbar-track {
+    background: aliceblue; /* Color of the part the thumb moves in */
+    border-radius: 10px;
+}
+
+.tenantDashboard::-webkit-scrollbar-thumb {
+    background-color: #8B8B8B; /* Color of the movable part of the scrollbar */
+    border-radius: 10px; /* Roundness of the movable part */
+    border: 3px solid aliceblue; /* Creates padding around the thumb */
 }
   
 .tenantDashboard h2 {
@@ -58,6 +76,7 @@
 .dropdown-container {
   position: relative;
   display: inline-block;
+  margin-left: 125px;
 }
 
 /* Dropdown button */

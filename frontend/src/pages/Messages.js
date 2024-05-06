@@ -1,14 +1,18 @@
 
 import "../styles/messages.css";
 
-import { Navbar, Nav, Dropdown, Container } from "react-bootstrap";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // Import Link component
+import { Container } from "react-bootstrap";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import CustomNav from "../components/navbar.component";
 
 function Messages() {
 
   return (
+    <>
+    <header>
+      <CustomNav />
+    </header>
     <div>
       <body>
         <Container className="bg">
@@ -16,6 +20,7 @@ function Messages() {
         </Container>
       </body>
     </div>
+    </>
   );
 }
 
