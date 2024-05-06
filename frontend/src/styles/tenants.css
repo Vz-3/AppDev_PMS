@@ -4,8 +4,8 @@
     background-color: aliceblue;
     border-radius: 25px;
     padding-top: 10px;
-    margin: 50vb 20px; /* Center the dashboard horizontally */
-    overflow: auto; /* Add overflow for scrolling if needed */
+    margin-top: 0vb;
+    overflow: auto;
 }
   
 .tenantDashboard h2 {
@@ -13,15 +13,8 @@
     text-align: center;
     background-color: rgb(60, 67, 67);
     border-radius: 25px;
-    margin-top: 0; /* Remove default margin */
 }
 
-.tenantWidget {
-    display:block;
-    align-self:normal;
-    margin: 20px;
-}
-  
 /* Media query for smaller screens */
 @media (max-width: 768px) {
     .tenantCell {
@@ -32,6 +25,7 @@
 /* tenants.css */
 .tenantList {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap; /* Allow items to wrap to the next line */
     justify-content:flex-start; /* Distribute items evenly */
   }
@@ -61,28 +55,44 @@
     flex-direction: row;
 }
 
-.addTenantButton {
-    --bs-btn-active-bg: none;
-    padding-top: 1vb;
-    font-size: 20px;
-    width: fit-content;
-    height: fit-content;
-    background-color: aliceblue;
-    border-radius: 4px;
-    margin: 10px auto;
-    color: rgb(56, 56, 56);
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out; /* Added transition for transform */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
 }
 
-.addTenantButton:hover {
-    background-color: aliceblue;
-    color: rgb(56, 56, 56);
+/* Dropdown button */
+.dropdown-btn {
+  background-color: aliceblue;
+  color: rgb(60, 67, 67);
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.addTenantButton.clicked {
-    transform: scale(0.35); /* Scale down when clicked */
-    background-color: rgb(56, 56, 56) !important; /* Keep the original background color */
-    color: aliceblue; /* Keep the original text color */
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Show dropdown content on hover */
+.dropdown-container:hover .dropdown-content {
+  display: block;
+}
+
+/* Dropdown items */
+.dropdown-item {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-item:hover {
+  background-color: #ddd;
 }
