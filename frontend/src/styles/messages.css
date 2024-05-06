@@ -1,11 +1,13 @@
 .bg{
     display: flexbox;
-    background-color: white;
-    height: 720px;
-    width: 1280px;
-    padding: 2vh;
+    width: 90%; /* Use a percentage value for responsiveness */
+    max-width: 4280px; /* Set a maximum width */
+    min-width: 1400px;
+    height: 1000px;
+    background-color: rgb(227, 241, 253);    
     border-radius: 25px;
-    position: relative;
+    padding: 10px;
+    margin-top: 10vh;
     
 }
 

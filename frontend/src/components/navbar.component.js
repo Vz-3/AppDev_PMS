@@ -38,6 +38,9 @@ function CustomNav() {
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 {/* Handle logout directly in onClick */}
+                <Dropdown.Item href="/Messages">
+                  Messages
+                </Dropdown.Item>
                 <Dropdown.Item onClick={handleLogout}>
                   Log Out
                 </Dropdown.Item>

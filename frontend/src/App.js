@@ -6,6 +6,7 @@ import WelcomePage from "./pages/WelcomePage";
 import Home from "./pages/Home"; // Import the Home component
 import Tenants from "./pages/Tenants";
 import UserPage from "./pages/UserPage";
+import Messages from "./pages/Messages.js";
 import CustomNav from "./components/navbar.component.js";
 import { useAuth } from "./pages/AuthContext";
 
@@ -26,7 +27,9 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/tenants" element={<Tenants />} />
             <Route path="/users" element={<UserPage />} />
-            <Route path="/home" element={<Home />} />{" "}
+            <Route path="/home" element={<Home />} />
+            <Route path="/messages" element={<Messages />} />
+
             {/* Use the imported Home component */}
           </Routes>
         </BrowserRouter>
