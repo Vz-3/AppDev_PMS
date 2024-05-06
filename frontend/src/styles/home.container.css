@@ -1,17 +1,13 @@
 .dashboard{
     width: 90%; /* Use a percentage value for responsiveness */
-    max-width: 4280px; /* Set a maximum width */
-    min-width: 1200px;
+    max-width: auto; /* Set a maximum width */
+    min-width: auto;
     height: 750px;
     background-color: rgb(227, 241, 253);    
     border-radius: 25px;
     padding: 10px;
-
     margin-top: 300px;
     margin-bottom: 100px;
-    justify-content: center;
-    align-items: center;
-    margin-left: 125px;
 }
 
 .dashboard h2{
@@ -69,6 +65,30 @@
     height: 500px;
     position: relative;
     
+}
+
+.info h2{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    background-color: rgb(60, 67, 67);
+    border-radius: 25px;
+}
+
+.info h4{
+    padding-top: 25px;
+    padding-left: 10px;
+    color: rgb(73, 67, 67);
+    text-align: left;
+    border-radius: 25px;
+}
+
+.info label{
+    padding-top: 25px;
+    padding-left: 10px;
+    color: rgb(73, 67, 67);
+    text-align: left;
+    border-radius: 25px;
+    font-size: 15px;
 }
 
 .infobox{

@@ -1,5 +1,5 @@
 import "../styles/messages.css";
-
+import "../styles/global.css";
 import { Container } from "react-bootstrap";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";

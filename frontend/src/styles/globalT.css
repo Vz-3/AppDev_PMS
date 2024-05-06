@@ -1,0 +1,43 @@
+/* global.css */
+body {
+    background-color: #121212; /* Dark background */
+    color: #fff; /* White text color for contrast */
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .tenant-home, .documents-section {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .lease-info{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    height: auto;
+    width: auto;
+    background-color: white;
+    color: #121212;
+    display: flex;
+    justify-content: center;
+  }
+  
+  h1, h2 {
+    color: #76ff03; /* Neon-like green for headings */
+  }
+  
+  p {
+    color: #b0bec5; /* Light gray for paragraph text */
+  }
+  
+  a {
+    color: #82b1ff; /* Light blue for links */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #448aff;
+  }
+  
+  

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios from 'axios';
 import "../styles/global.css";
 
 function Login() {
@@ -19,13 +19,14 @@ function Login() {
     setError("");
 
     try {
-      const response = await axios.post("http://localhost:7777/account/login", {
-        email: username,
-        password: password,
+      const response = await axios.post('http://localhost:7777/account/login', { 
+        email: username, 
+        password: password 
       });
       // Redirect based on user role
       console.log("Login successful:", response.data);
       const path = response.data.role === "owner" ? "/home" : "/tenanthome";
+      sessionStorage.setItem("token", response.data['token'])
       window.location.href = path;
     } catch (err) {
       console.error("Login failed:", err.response || err.message);
@@ -35,41 +36,46 @@ function Login() {
   };
 
   return (
-
     <div className="card">
       <div className="Login">
         <label>Login</label>
+        <br />
       </div>
       <div className="credentials">
+        <br />
+        <br />
         <label htmlFor="user_pass">Username</label>
-
+        <br />
         <input
           type="text"
           id="user_pass"
           className="tbox"
-          placeholder=""
+          placeholder="username123"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-
+        <br />
+        <br />
         <label htmlFor="user_pwd">Password</label>
-
+        <br />
         <input
           type="password"
           id="user_pwd"
           className="tbox"
-          placeholder=""
+          placeholder="passWord123"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
+        <br />
+        <br />
+        <br />
         <button
           type="submit"
           className="submit"
           onClick={handleLogin}
           disabled={!username || !password || loading}
         >
-          {loading ? "Logging in..." : "Submit"}
+          {loading ? 'Logging in...' : 'Submit'}
         </button>
         {error && <p className="error">{error}</p>}
       </div>

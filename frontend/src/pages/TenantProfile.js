@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Navbar, Container, Nav, Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../styles/globalT.css';
-import '../styles/global.css';
 
 class TenantHome extends Component {
     API_URL = "http://localhost:7777/"
@@ -15,6 +14,11 @@ class TenantHome extends Component {
             data: null,
             show_value: false, // Added to initialize show_value state
         };
+    }
+    formatDate=(dateString)=> {
+        const date = new Date(dateString);
+        // Customize the format as needed
+        return date.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' });
     }
 
     // Will be called when the component is mounted
@@ -82,18 +86,25 @@ class TenantHome extends Component {
                             </Navbar.Collapse>
                         </Container>
                     </Navbar>
-                    <div className="greetings" style={{ paddingTop: '80px' }}>
-                        <div className="greetings">
-                            {
-                                "Welcome".split('').map(chr => <span> {chr} </span>)
-                            }
-                            {
-                                this.state.data['name']['value']['firstName'].split('').map(chr => <span> {chr} </span>)
-                            }
+                    <div className="tenant-home" style={{ paddingTop: '80px' }}>
+                        <div className="lease-info">
+                            <div className='pfp'>
+                                PlaceHolder
+                            </div>
+                            <div className='labels'>
+                                <label>Full Name:</label>
+                                <label>Email: </label>
+                                <label>Contact Num: </label>
+                                <label>Date of Birth: </label>
+                                <label>Role: </label>
+                            </div>
+                            <div className='info'>
+                            {this.state.data['name']['value']['firstName']}
+                            {this.state.data['email']['value']}
+                            {this.state.data['contactNo']['value']}
+                            {this.formatDate(this.state.data['dateOfBirth']['value'])}
+                            </div>
                         </div>
-                    </div>
-                    <div className="bodytenant">
-                        <p>Feel free to explore. You can navigate through the navbar to interact.</p>
                     </div>
                 </>
             )
@@ -113,7 +124,7 @@ class TenantHome extends Component {
                                             <Nav.Link href="/TenantHome">Home</Nav.Link>
                                             <Nav.Link href="/TenantProfile">Profile</Nav.Link>
                                             <Nav.Link href="/Contract">Contract</Nav.Link>
-                                            <Nav.Link href="/TenantMessages">Messages</Nav.Link>
+                                            <Nav.Link href="/TenantMessages">/Messages</Nav.Link>
                                         </Nav>
                                         <Nav>
                                             {/* Display user role dynamically */}
