@@ -18,6 +18,10 @@ export async function getUserAccount(email: string): Promise<User> {
     return accountModel.getUser(email);
 }
 
+export async function getUserAccountById(id: string): Promise<User> {
+    return accountModel.getUserById(id);
+}
+
 export async function updateUserAccount(oldUser: User, newUser: User): Promise<boolean> {
     return accountModel.updateUser(oldUser, newUser);
 }

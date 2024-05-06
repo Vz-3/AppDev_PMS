@@ -5,6 +5,7 @@ import { authenticate } from "../middleware/jwt-auth";
 
 const router = Router();
 
+//refresh token function?
 router.post("/register", register);
 router.patch("/update", authenticate, update);
 router.delete("/delete", authenticate, deleteAccount);
