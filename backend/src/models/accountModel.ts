@@ -54,6 +54,15 @@ export class AccountModel {
         return userAccount;
     }
 
+    async getUserById(id: string): Promise<User> {
+        const userAccount = await db.UserModel.findOne({ _id: id });
+        if (!userAccount) {
+            console.log("getUserById error: User not found");
+            throw new Error("User not found");
+        }
+        return userAccount;
+    }
+
     async updateUser(oldUser: User, newUser: User): Promise<boolean> {
         try {
             await db.UserModel.updateOne({_id: oldUser._id}, newUser);
