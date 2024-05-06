@@ -251,5 +251,12 @@ export class PropertyModel {
         return unit;
     }
 
-
+    async getUnitByTenant(user: User): Promise<Unit> {
+        const unit = await db.UnitModel.findOne({ tenant: user._id });
+        if (!unit) {
+            console.log("getUnitByTenant error: Unit not found");
+            throw new Error("Unit not found");
+        }
+        return unit;
+    }
 }

@@ -114,3 +114,7 @@ export async function deletePropertyAndUnits(user: User, propertyId: string, ses
 export async function getPropertyUnit(unitId: string): Promise<Unit> {
     return propertyModel.getUnit(unitId);
 }
+
+export async function getTenantUnit(user: User): Promise<Unit> {
+    return propertyModel.getUnitByTenant(user);
+}

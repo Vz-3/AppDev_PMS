@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { BuildingType, Unit, Building, UnitStatus, UnitType } from '../models/database/propertySchema';
 import { getUserAccountById } from '../services/accountService';
-import { assignUnit, evictTenant, createProperty, deletePropertyAndUnits, getProperty, getProperties, updateProperty, populateBuildingUnits, getPropertyUnits, getPropertyUnit, getPropertyById } from '../services/propertyService';
+import { assignUnit, evictTenant, createProperty, deletePropertyAndUnits, getProperty, getProperties, updateProperty, populateBuildingUnits, getPropertyUnits, getPropertyUnit, getPropertyById, getTenantUnit } from '../services/propertyService';
 import { RequestWithAuth } from '../types';
 import { startSession } from 'mongoose';
 import { getLocalDate } from '../utilities/utils';
@@ -444,6 +444,104 @@ export async function updateUnitPropertyAPI(req: RequestWithAuth, res: Response)
         res.status(400).send({
             success: false,
             message: "Update unit API error.",
+            error
+        });
+        return;
+    }
+}
+
+export async function getMyUnit(req: RequestWithAuth, res: Response) {
+    try {
+        const userId = req._id;
+        const user = await getUserAccountById(userId);
+        if (!user) {
+            res.status(400).send({ 
+                success: false,
+                message: "User not found." 
+            });
+            return;
+        }
+
+        if (user.role === 'owner') {
+            res.status(400).send({ 
+                success: false,
+                message: "Owners do not have units." 
+            });
+            return;
+        }
+        
+        const units = await getTenantUnit(user);
+        res.status(200).send({
+            success: true,
+            message: `My unit/s.`,
+            units: units
+        });
+
+    } catch (e) {
+        console.log("Get my units error: ", e);
+        res.status(400).send({
+            success: false,
+            message: "Get my units API error.",
+            e
+        });
+        return;
+    }
+}
+export async function getBldg(req: Request, res: Response) {
+    const { bldgId } = req.body;
+    if (!bldgId) {
+        res.status(400).send({ 
+            success: false,
+            message: "Please provide all required fields." 
+        });
+        return;
+    }
+
+    const building = await getPropertyById(bldgId);
+    if (!building) {
+        res.status(400).send({ 
+            success: false,
+            message: "Building not found." 
+        });
+        return;
+    }
+
+    res.status(200).send({
+        success: true,
+        message: `Building information of ${bldgId}.`,
+        building: building
+    });
+}
+export async function getBldgOwner(req: Request, res: Response) {
+    try {
+        const { bldgId } = req.body;
+        if (!bldgId) {
+            res.status(400).send({ 
+                success: false,
+                message: "Please provide all required fields." 
+            });
+            return;
+        }
+
+        const building = await getPropertyById(bldgId);
+        if (!building) {
+            res.status(400).send({ 
+                success: false,
+                message: "Building not found." 
+            });
+            return;
+        }
+
+        res.status(200).send({
+            success: true,
+            message: `Building owner of ${bldgId}.`,
+            owner: building.buildingOwner
+        });
+    } catch (error) {
+        console.log("Get building owner error: ", error);
+        res.status(400).send({
+            success: false,
+            message: "Get building owner API error.",
             error
         });
         return;

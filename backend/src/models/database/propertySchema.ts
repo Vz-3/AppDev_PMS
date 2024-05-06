@@ -37,7 +37,7 @@ export interface Unit {
     status: UnitStatus,
     buildingId: string,
     unitMonthlyCost: Number,
-    tenant: string 
+    tenant: string  // tenant ID
     modeOfPayment: string, // link to qr code image? bare bones payment implementation
     leastStartDate?: Date,
     leastEndDate?: Date,
