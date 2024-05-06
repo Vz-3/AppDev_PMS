@@ -11,5 +11,5 @@ router.delete("/delete", authenticate, deleteAccount);
 router.post("/login", logIn);
 router.get("/logout", authenticate, logOut);
 router.get("/view", authenticate, viewProfile);
-router.get("/reset_password", authenticate, resetPassword);
+router.post("/reset_password", authenticate, resetPassword);
 export default router;
