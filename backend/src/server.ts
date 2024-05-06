@@ -3,6 +3,7 @@ import "dotenv/config";
 const cors = require("cors");
 import express from "express";
 import accountRoute from "./routes/accountRoute";
+import propertyRoute from "./routes/propertyRoute";
 import { db } from './models/database/mongodbConfig';
 
 db.initDatabaseConnection();
@@ -33,6 +34,7 @@ Get - Read
 
 const apiRoutes = {
   "/account" : accountRoute,
+  "/property" : propertyRoute,
 };
 
 for (const key of Object.keys(apiRoutes)) {
