@@ -164,7 +164,7 @@ export async function viewProfile(req: RequestWithAuth, res: Response) {
             });
             return;
         }
-        const { userName, name, email, contactNo, dateOfBirth, role, loggedAt, unitNo, properties } = userAccount;
+        const { userName, name, email, contactNo, dateOfBirth, role, loggedAt, unitNo } = userAccount;
         res.status(200).send({
             success: true,
             message: 'User account details.',
@@ -176,7 +176,6 @@ export async function viewProfile(req: RequestWithAuth, res: Response) {
             role: role,
             loggedAt: loggedAt,
             unitNo: unitNo,
-            properties:properties
         });
     } catch (e) {
         console.log("View error: ", e);
