@@ -1,7 +1,7 @@
 .dashboard{
     width: 90%; /* Use a percentage value for responsiveness */
-    max-width: auto; /* Set a maximum width */
-    min-width: auto;
+    max-width: 4280px; /* Set a maximum width */
+    min-width: 1200px;
     height: 750px;
     background-color: rgb(227, 241, 253);    
     border-radius: 25px;
@@ -32,6 +32,7 @@
 
 .wtext{
     margin: 20px;
+    color: rgb(0, 0, 0)
 }
 
 .widgets{
@@ -71,24 +72,7 @@
     color: rgb(255, 255, 255);
     text-align: center;
     background-color: rgb(60, 67, 67);
-    border-radius: 25px;
-}
-
-.info h4{
-    padding-top: 25px;
-    padding-left: 10px;
-    color: rgb(73, 67, 67);
-    text-align: left;
-    border-radius: 25px;
-}
-
-.info label{
-    padding-top: 25px;
-    padding-left: 10px;
-    color: rgb(73, 67, 67);
-    text-align: left;
-    border-radius: 25px;
-    font-size: 15px;
+    border-radius: 10px;
 }
 
 .infobox{
@@ -140,7 +124,7 @@
     left: 50%; /* Place the left edge of the prompt at the horizontal center of the screen */
     transform: translate(-50%, -50%); /* Use transform to center the prompt perfectly */
     z-index: 9999;
-    background-color: rgb(227, 241, 253);  
+    background-color: rgb(227, 241, 253);
     border-width: 2.5px;
     border-style: solid;
     border-radius: 10px;

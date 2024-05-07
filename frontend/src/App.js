@@ -6,14 +6,14 @@ import Home from "./pages/Home";
 import Tenants from "./pages/Tenants";
 import TenantMessages from "./pages/TenantMessages";
 import TenantHome from "./pages/TenantHome";
-import Unit from "./pages/Unit"; 
-import User from "./pages/User"; 
+import Unit from "./pages/Unit";
+import User from "./pages/User";
 import Contract from "./pages/Contract";
-import TenantProfile from "./pages/TenantProfile"; 
+import TenantProfile from "./pages/TenantProfile";
+import UserPage from "./pages/UserPage";
 import "./styles/global.css";
 
 function App() {
-  
   return (
     <>
       <BrowserRouter>
@@ -26,13 +26,16 @@ function App() {
           <Route path="/unit" element={<Unit />} />{" "}
           {/* Managing units (owner) */}
           <Route path="/user" element={<User />} />{" "}
+          <Route path="/userpage" element={<UserPage />} />{" "}
           {/* Managing users (owner) */}
           <Route path="/tenanthome" element={<TenantHome />} />{" "}
-          
           {/* Main dashboard for tenants */}
-          <Route path="/tenantmessages" element={<TenantMessages />}/>{""}
-          <Route path="/tenantprofile" element={<TenantProfile />}/>{""}
-          <Route path="/contract" element={<Contract />}/>{""}
+          <Route path="/tenantmessages" element={<TenantMessages />} />
+          {""}
+          <Route path="/tenantprofile" element={<TenantProfile />} />
+          {""}
+          <Route path="/contract" element={<Contract />} />
+          {""}
           {/* Redirecting unknown paths back to main page */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

@@ -91,7 +91,7 @@ class TenantMessages extends Component {
               <div>
                 <h2>Messages</h2>
               </div>
-              <div className="infobox">
+              <div>
                 <TenantSMS />
               </div>
             </Container>
