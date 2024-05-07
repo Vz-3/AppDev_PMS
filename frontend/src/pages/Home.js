@@ -37,6 +37,13 @@ function Home() {
   };
 
   const handleAddUnit = (newUnit) => {
+    // Check if the new unit already exists in the unitInfo array
+    if (unitInfo.some(unit => unit.unitNumber === newUnit.unitNumber)) {
+      // If it exists, alert the user or handle it accordingly
+      alert("Unit already exists");
+      return;
+    }
+  
     // Add the new unit information to the state
     setUnitInfo([newUnit, ...unitInfo]);
   };
@@ -65,6 +72,7 @@ function Home() {
     });
   }
 
+  const totalTenants = unitInfo.reduce((total, unit) => total + parseInt(unit.numTenants), 0);
   return (
     <>
     <header>
@@ -79,7 +87,7 @@ function Home() {
             <img src={user} alt="user" className="icon" />
             <div className="wtext">
               Total Tenants: <br/>
-              # {/*set Total Tenants*/}
+              {totalTenants}
             </div>
           </div>
           <div className="widgets">

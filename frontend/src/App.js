@@ -27,7 +27,7 @@ function App() {
           <Route path="/home" element={<Home />} /> {/* Owner's Dashboard */}
           <Route path="/tenants" element={<Tenants />} />{" "}
           {/* Managing tenants (owner) */}
-          <Route path="#unit" element={<Unit />} />{" "}
+          <Route path="/units" element={<Unit />} />{" "}
           {/* Managing units (owner) */}
           <Route path="/user" element={<User />} />{" "}
           {/* Managing users (owner) */}
