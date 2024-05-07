@@ -167,13 +167,6 @@ export async function coWriteAPI(req: RequestWithAuth, res: Response) {
             return;
         }
 
-        if (senderUser.role !== 'tenant') {
-            res.status(400).send({ 
-                success: false,
-                message: "Only tenants can create complaints." 
-            });
-            return;
-        }
 
         const newMessage: Message = {
             messageType: MessageType.CO,

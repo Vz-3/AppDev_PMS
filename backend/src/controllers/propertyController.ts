@@ -487,6 +487,7 @@ export async function getMyUnit(req: RequestWithAuth, res: Response) {
         return;
     }
 }
+
 export async function getBldg(req: Request, res: Response) {
     const { bldgId } = req.body;
     if (!bldgId) {
@@ -512,6 +513,7 @@ export async function getBldg(req: Request, res: Response) {
         building: building
     });
 }
+
 export async function getBldgOwner(req: Request, res: Response) {
     try {
         const { bldgId } = req.body;
