@@ -5,6 +5,7 @@ import "../styles/global.css";
 import TenantSMS from "../components/tenant.sms";
 
 class TenantMessages extends Component {
+  API_URL = "http://localhost:7777/";
   // Don't change this, unless you know what you're doing
   constructor(props) {
     super(props);

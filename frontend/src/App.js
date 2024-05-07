@@ -6,8 +6,10 @@ import Home from "./pages/Home";
 import Tenants from "./pages/Tenants";
 import TenantMessages from "./pages/TenantMessages";
 import TenantHome from "./pages/TenantHome";
-import Unit from "./pages/Unit"; // Assuming you have a Unit.js
-import User from "./pages/User"; // Assuming you have a User.js
+import Unit from "./pages/Unit"; 
+import User from "./pages/User"; 
+import Contract from "./pages/Contract";
+import TenantProfile from "./pages/TenantProfile"; 
 import "./styles/global.css";
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
           
           {/* Main dashboard for tenants */}
           <Route path="/tenantmessages" element={<TenantMessages />}/>{""}
+          <Route path="/tenantprofile" element={<TenantProfile />}/>{""}
+          <Route path="/contract" element={<Contract />}/>{""}
           {/* Redirecting unknown paths back to main page */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

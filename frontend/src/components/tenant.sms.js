@@ -12,13 +12,13 @@ function TenantSMS() {
         method: "POST",
         headers: {
           "x-api-key":
-            "RC6Uy8twYjkBaZ8icGfd-TQSIPoUSPBuVw4cTR-tUB_ufn1vyDL_9IdGBVZfqkTM", // Replace with your actual API key
+            "1gmXuGUGEJNXnv7BTjAlKmb79r83jay7MswIuouqdVv3is8dvIBbihl7KZZYvshV", // Replace with your actual API key
           Accept: "application/json",
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           content: message,
-          from: "+639996736800",
+          from: "+639157516840",
           to: recipient,
         }),
       });
@@ -60,7 +60,7 @@ function TenantSMS() {
           <br />
           <input
             type="text"
-            placeholder="Recipient (e.g., +18005550100)"
+            placeholder="Recipient (e.g., +63905550100)"
             value={recipient}
             onChange={(e) => setRecipient(e.target.value)}
           />
