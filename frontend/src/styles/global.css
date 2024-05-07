@@ -38,7 +38,8 @@ code {
 .tbox{
   border-radius: 5px;
   width: 350px;
-  height: 25px;
+  height: 30px;
+  margin-top: 20px;
   border-color: #272c47;
 }
 
@@ -53,6 +54,7 @@ code {
 .submit{
   padding: 10px 20px;
   background-color: #272c47;
+  margin-top: 25px;
   border: none;
   border-radius: 5px;
   color: white;
